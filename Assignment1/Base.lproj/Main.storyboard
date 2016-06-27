@@ -58,8 +58,45 @@
                                 <rect key="frame" x="20" y="0.0" width="560" height="551"/>
                                 <subviews>
                                     <view contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="o4Q-yX-R0L">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="275.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="276"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hqn-oQ-CQK">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="276"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gFi-a4-Fee" userLabel="Generation">
+                                                        <rect key="frame" x="0.0" y="0.0" width="560" height="186"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vm2-lC-dGV" userLabel="Grid Size">
+                                                        <rect key="frame" x="-2" y="186" width="564" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="2JG-ZW-ZRu"/>
+                                                        </constraints>
+                                                    </slider>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="88N-XG-N4x" userLabel="Frames/Second">
+                                                        <rect key="frame" x="-2" y="216" width="564" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Mim-lx-ICB"/>
+                                                        </constraints>
+                                                    </slider>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cA-s1-vJa" userLabel="Reset">
+                                                        <rect key="frame" x="0.0" y="246" width="560" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="GTI-RW-D7u"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.42422554950000002" green="0.65885531880000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="hqn-oQ-CQK" firstAttribute="top" secondItem="o4Q-yX-R0L" secondAttribute="top" id="Ijs-cF-i8v"/>
+                                            <constraint firstItem="hqn-oQ-CQK" firstAttribute="height" secondItem="o4Q-yX-R0L" secondAttribute="height" id="W1W-fi-WF3"/>
+                                            <constraint firstItem="hqn-oQ-CQK" firstAttribute="width" secondItem="o4Q-yX-R0L" secondAttribute="width" id="aCH-Mc-tPg"/>
+                                            <constraint firstItem="hqn-oQ-CQK" firstAttribute="leading" secondItem="o4Q-yX-R0L" secondAttribute="leading" id="tYZ-5f-O4b"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -67,7 +104,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="bottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="wXx-Ps-mCy">
-                                        <rect key="frame" x="0.0" y="275" width="560" height="275.5"/>
+                                        <rect key="frame" x="0.0" y="276" width="560" height="276"/>
                                         <color key="backgroundColor" red="0.69944402919600601" green="1" blue="0.65546402305299267" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
