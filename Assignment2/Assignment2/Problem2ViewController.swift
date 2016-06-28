@@ -15,17 +15,23 @@ class Problem2ViewController: UIViewController {
     
     //MARK: Properties
     
+    @IBOutlet weak var textViewProblem2: UITextView!
+    
     @IBAction func runButtonProblem2(sender: UIButton) {
+        
+        textViewProblem2.text = "Run Button Pressed"
         
     }
     
-    @IBOutlet weak var textViewProblem2: UITextView!
+   
 
-    
+
     
     override func viewDidLoad() {
         
-        self.title = "Problem 2"
+        //P1 #7
+        self.title = "Problem 2"// not sure if this works
+        
         
     }
     

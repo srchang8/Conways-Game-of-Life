@@ -75,13 +75,16 @@
                         <viewControllerLayoutGuide type="top" id="A4J-sb-L8S"/>
                         <viewControllerLayoutGuide type="bottom" id="4FZ-8p-AXw"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.10000000000000001" contentMode="scaleToFill" id="3Ba-4e-WOQ">
+                    <view key="view" contentMode="scaleToFill" id="3Ba-4e-WOQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuH-9e-Od6">
                                 <rect key="frame" x="145" y="193" width="30" height="30"/>
                                 <state key="normal" title="Run"/>
+                                <connections>
+                                    <action selector="runButtonProblem3:" destination="RNb-YY-swM" eventType="touchUpInside" id="vZ9-8I-uME"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-FL-eZV">
                                 <rect key="frame" x="40" y="262" width="240" height="128"/>
@@ -93,6 +96,9 @@
                         <color key="backgroundColor" red="1" green="0.98363125500000004" blue="0.1222622969" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="textViewProblem3" destination="u9p-FL-eZV" id="NQN-Sw-Woj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hma-UE-UhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,23 +112,23 @@
                         <viewControllerLayoutGuide type="top" id="oh8-7Q-tvu"/>
                         <viewControllerLayoutGuide type="bottom" id="2OR-aF-jhf"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.10000000000000001" contentMode="scaleToFill" id="wTD-QD-8qP" customClass="ViewController">
+                    <view key="view" contentMode="scaleToFill" id="wTD-QD-8qP" customClass="ViewController">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg2-kA-OK5">
-                                <rect key="frame" x="145" y="183" width="30" height="30"/>
-                                <state key="normal" title="Run"/>
-                                <connections>
-                                    <action selector="runButton:" destination="2Qt-l2-hub" eventType="touchUpInside" id="8qZ-zb-Vxt"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uYZ-Rb-T4M">
                                 <rect key="frame" x="40" y="272" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVY-Yj-I7u">
+                                <rect key="frame" x="145" y="157" width="30" height="30"/>
+                                <state key="normal" title="Run"/>
+                                <connections>
+                                    <action selector="runButtonProblem2:" destination="2Qt-l2-hub" eventType="touchUpInside" id="Kkp-NO-cLo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15693273739999999" green="0.41817326570000002" blue="0.1192011551" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -143,7 +149,7 @@
                         <viewControllerLayoutGuide type="top" id="DB2-P6-DRp"/>
                         <viewControllerLayoutGuide type="bottom" id="x4p-9A-qSA"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.10000000000000001" contentMode="scaleToFill" id="k6e-PY-2kN">
+                    <view key="view" contentMode="scaleToFill" id="k6e-PY-2kN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
