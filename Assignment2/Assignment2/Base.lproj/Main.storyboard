@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,29 +19,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6k-b6-Im2">
-                                <rect key="frame" x="117" y="218" width="70" height="30"/>
-                                <state key="normal" title="Problem 2"/>
-                                <connections>
-                                    <segue destination="2Qt-l2-hub" kind="show" id="Upm-p3-uMP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-Jy-k8u">
-                                <rect key="frame" x="117" y="297" width="71" height="30"/>
-                                <state key="normal" title="Problem 3"/>
-                                <connections>
-                                    <segue destination="RNb-YY-swM" kind="show" id="6H6-VV-qZe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-ve-9Sk">
-                                <rect key="frame" x="117" y="371" width="71" height="30"/>
-                                <state key="normal" title="Problem 4"/>
-                                <connections>
-                                    <segue destination="MCf-DS-Apt" kind="show" id="sGm-KH-7GL"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YKL-kz-sRf">
+                                <rect key="frame" x="125" y="195" width="71" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6k-b6-Im2">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
+                                        <state key="normal" title="Problem 2"/>
+                                        <connections>
+                                            <segue destination="2Qt-l2-hub" kind="show" id="Upm-p3-uMP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-Jy-k8u">
+                                        <rect key="frame" x="0.0" y="30" width="71" height="30"/>
+                                        <state key="normal" title="Problem 3"/>
+                                        <connections>
+                                            <segue destination="RNb-YY-swM" kind="show" id="6H6-VV-qZe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-ve-9Sk">
+                                        <rect key="frame" x="0.0" y="60" width="71" height="30"/>
+                                        <state key="normal" title="Problem 4"/>
+                                        <connections>
+                                            <segue destination="MCf-DS-Apt" kind="show" id="sGm-KH-7GL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YKL-kz-sRf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bY-re-U7R"/>
+                            <constraint firstItem="YKL-kz-sRf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vMg-Dc-BBO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sJI-iA-2a5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -87,7 +98,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-FL-eZV">
-                                <rect key="frame" x="40" y="262" width="240" height="128"/>
+                                <rect key="frame" x="40" y="262" width="200" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -112,18 +123,28 @@
                         <viewControllerLayoutGuide type="top" id="oh8-7Q-tvu"/>
                         <viewControllerLayoutGuide type="bottom" id="2OR-aF-jhf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wTD-QD-8qP" customClass="ViewController">
+                    <view key="view" contentMode="scaleToFill" id="wTD-QD-8qP" userLabel="view" customClass="ViewController">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uYZ-Rb-T4M">
-                                <rect key="frame" x="40" y="272" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uYZ-Rb-T4M">
+                                <rect key="frame" x="60" y="190" width="200" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="T7q-3y-nV5"/>
+                                    <constraint firstAttribute="width" constant="200" id="TY1-Nc-TRk"/>
+                                    <constraint firstAttribute="width" secondItem="uYZ-Rb-T4M" secondAttribute="height" multiplier="2:1" id="bbJ-FK-TAg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVY-Yj-I7u">
-                                <rect key="frame" x="145" y="157" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVY-Yj-I7u">
+                                <rect key="frame" x="145" y="138" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4LM-a0-Z56"/>
+                                    <constraint firstAttribute="width" secondItem="oVY-Yj-I7u" secondAttribute="height" multiplier="1:1" id="A4P-mc-gSw"/>
+                                    <constraint firstAttribute="height" constant="30" id="p1a-MP-9hb"/>
+                                </constraints>
                                 <state key="normal" title="Run"/>
                                 <connections>
                                     <action selector="runButtonProblem2:" destination="2Qt-l2-hub" eventType="touchUpInside" id="Kkp-NO-cLo"/>
@@ -131,6 +152,23 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15693273739999999" green="0.41817326570000002" blue="0.1192011551" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="oVY-Yj-I7u" secondAttribute="trailing" constant="125" id="6y1-cE-XI0"/>
+                            <constraint firstItem="uYZ-Rb-T4M" firstAttribute="centerY" secondItem="wTD-QD-8qP" secondAttribute="centerY" id="JHB-JN-TYz"/>
+                            <constraint firstItem="uYZ-Rb-T4M" firstAttribute="top" secondItem="oVY-Yj-I7u" secondAttribute="bottom" constant="22" id="iHS-lU-SpN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oVY-Yj-I7u" secondAttribute="trailing" constant="129" id="ifV-BP-eoW"/>
+                            <constraint firstItem="oVY-Yj-I7u" firstAttribute="centerX" secondItem="wTD-QD-8qP" secondAttribute="centerX" id="ixD-hQ-s4c"/>
+                            <constraint firstItem="oVY-Yj-I7u" firstAttribute="leading" secondItem="wTD-QD-8qP" secondAttribute="leadingMargin" priority="999" constant="125" id="kX6-8t-flI"/>
+                            <constraint firstItem="uYZ-Rb-T4M" firstAttribute="centerX" secondItem="wTD-QD-8qP" secondAttribute="centerX" id="nPW-Tl-ywz"/>
+                            <constraint firstItem="oVY-Yj-I7u" firstAttribute="top" secondItem="oh8-7Q-tvu" secondAttribute="bottom" constant="74" id="s7U-tH-HNQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6y1-cE-XI0"/>
+                                <exclude reference="ifV-BP-eoW"/>
+                                <exclude reference="kX6-8t-flI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -153,20 +191,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8v2-O8-zxi">
-                                <rect key="frame" x="157" y="187" width="30" height="30"/>
-                                <state key="normal" title="Run"/>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sky-cl-H4l">
-                                <rect key="frame" x="52" y="261" width="240" height="128"/>
+                                <rect key="frame" x="52" y="261" width="200" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8v2-O8-zxi">
+                                <rect key="frame" x="157" y="187" width="30" height="30"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleColor" red="0.23672278085599863" green="0.41792716367002702" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="runButtonProblem4:" destination="MCf-DS-Apt" eventType="touchUpInside" id="V80-nz-5t9"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.098568542630000006" green="0.15214226049999999" blue="0.56881953529999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="textViewProblem4" destination="Sky-cl-H4l" id="yyg-Td-fdj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSs-RI-ReD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
