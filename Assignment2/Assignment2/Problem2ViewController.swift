@@ -19,7 +19,6 @@ class Problem2ViewController: UIViewController {
     
     @IBAction func runButtonProblem2(sender: UIButton) {
         
-    textViewProblem2.text = "Run Button Pressed"
         
         
         
@@ -176,7 +175,7 @@ class Problem2ViewController: UIViewController {
         
         
         //count and print number of living cells in After
-        textViewProblem2.text="Living cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
+        textViewProblem2.text="Run button pressed \nLiving cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
         
     }
     
