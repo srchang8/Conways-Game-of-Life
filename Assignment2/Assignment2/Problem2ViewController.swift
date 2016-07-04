@@ -80,7 +80,7 @@ class Problem2ViewController: UIViewController {
             if checkCoordinates( x-1, y: y-1 ) {
                 aliveCount+=1
             }
-    
+            
             //check top
             if checkCoordinates( x, y: y-1 ){
                 aliveCount+=1
@@ -115,21 +115,21 @@ class Problem2ViewController: UIViewController {
             //check to see if current cell is dead or alive first
             switch before[x][y] {
                 
-            case true:
-                if aliveCount == 2 || aliveCount == 3 {
-                    alive = true
-                }
-            
-            case false:
-                if aliveCount == 3{
-                    alive = true
-                }
+                case true:
+                    if aliveCount == 2 || aliveCount == 3 {
+                        alive = true
+                    }
+                
+                case false:
+                    if aliveCount == 3{
+                        alive = true
+                    }
                 
             }
+    
             
-           
             
-            // return if cell given in the parameter should be alive 
+            // return if cell given in the parameter should be alive
             //by checking its neighbors and taking in consideration if the coordinates go out of bounds
             return alive
             
@@ -160,7 +160,6 @@ class Problem2ViewController: UIViewController {
         for y in 0..<NumColumns{//iterate 0-9
             for x in 0..<NumRows{//iterate 0-9
                 
-                
                 if checkNeighbors( x, y: y) == true{
                     after[y][x] = true
                     numOfLivingCellsInAfter+=1
@@ -179,9 +178,9 @@ class Problem2ViewController: UIViewController {
         
     }
     
-   
-
-
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -190,7 +189,7 @@ class Problem2ViewController: UIViewController {
         
         
         
-       
+        
         
         
         

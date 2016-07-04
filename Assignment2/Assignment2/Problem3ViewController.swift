@@ -22,6 +22,7 @@ class Problem3ViewController: UIViewController {
         let NumColumns: Int = 10
         let NumRows: Int = 10
         var numOfLivingCellsInBefore: Int = 0
+        var numOfLivingCellsInAfter: Int = 0
         var before = Array(count:NumColumns, repeatedValue: Array(count:NumRows, repeatedValue:false))
         var afterStep = Array(count:NumColumns, repeatedValue: Array(count:NumRows, repeatedValue:false))
         
@@ -41,9 +42,24 @@ class Problem3ViewController: UIViewController {
         }
 
         
-       afterStep = step(before)
+       //afterStep = step(before)
         
-        textViewProblem3.text="Run button pressed \nLiving cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(afterStep.getNumOfLivingCells())"
+        
+        for x in 0..<step(before).count{//iterate 0-size of input array
+            for y in 0..<afterStep[x].count{//iterate 0-9
+                
+                if step(before)[x][y] == true{
+                    numOfLivingCellsInAfter+=1
+                }
+                
+            }
+            
+        }
+
+        
+        
+        
+       textViewProblem3.text="Run button pressed \nLiving cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
         
         
         

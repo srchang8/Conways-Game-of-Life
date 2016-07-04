@@ -8,12 +8,50 @@
 
 import Foundation
 
-func step(TwoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
+func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
     
-    //var after: Array<Array<Bool>>
-    var after = Array(count:TwoDimArrOfBools.count, repeatedValue: Array(count:TwoDimArrOfBools.count, repeatedValue:false))
+    var NumColumns = twoDimArrOfBools.count
+    var NumRows = twoDimArrOfBools.count
+    var numOfLivingCellsInBefore: Int = 0
     var numOfLivingCellsInAfter: Int = 0
-   
+    
+    var after = Array(count:twoDimArrOfBools.count, repeatedValue: Array(count:twoDimArrOfBools.count, repeatedValue:false))
+    
+    
+    
+    //check if the cell is dead given the coordinate
+    func checkCoordinates( x: Int, y: Int) -> Bool{
+        
+        var checkedX: Int = x
+        var checkedY: Int = y
+        
+        
+        //check if coordinates are out of bounds
+        // when out of bounds is -1 or = size of array,
+        //it will convert to size -1 to be able to check other side of array
+        if x < 0 {
+            checkedX = NumColumns - 1
+        }
+        
+        if x >= NumColumns {
+            checkedX = NumColumns - 1
+            
+        }
+        
+        if y < 0 {
+            checkedY = NumRows - 1
+        }
+        
+        if y >= NumRows {
+            checkedY = NumRows - 1
+        }
+        
+        //check if cell is alive
+        return twoDimArrOfBools[checkedX][checkedY]
+        
+    }
+    
+    
     
     
     
@@ -61,7 +99,7 @@ func step(TwoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         
         
         //check to see if current cell is dead or alive first
-        switch TwoDimArrOfBools[x][y] {
+        switch twoDimArrOfBools[x][y] {
             
         case true:
             if aliveCount == 2 || aliveCount == 3 {
@@ -76,7 +114,6 @@ func step(TwoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         }
         
         
-        
         // return if cell given in the parameter should be alive
         //by checking its neighbors and taking in consideration if the coordinates go out of bounds
         return alive
@@ -85,43 +122,10 @@ func step(TwoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
     }
     
     
-    //check if the cell is dead given the coordinate
-    func checkCoordinates( x: Int, y: Int) -> Bool{
-        
-        var checkedX: Int = x
-        var checkedY: Int = y
-        
-        
-        //check if coordinates are out of bounds
-        // when out of bounds is -1 or = size of array,
-        //it will convert to size -1 to be able to check other side of array
-        if x < 0 {
-            checkedX = TwoDimArrOfBools.count - 1
-        }
-        
-        if x >= TwoDimArrOfBools.count {
-            checkedX = TwoDimArrOfBools.count - 1
-            
-        }
-        
-        if y < 0 {
-            checkedY = TwoDimArrOfBools[x].count - 1
-        }
-        
-        if y >= TwoDimArrOfBools[x].count {
-            checkedY = TwoDimArrOfBools[x].count - 1
-        }
-        
-        //check if cell is alive
-        return TwoDimArrOfBools[checkedX][checkedY]
-        
-    }
-
     
-    
-    for x in 0..<TwoDimArrOfBools.count{//iterate 0-size of input array
-        for y in 0..<TwoDimArrOfBools[x].count{//iterate 0-9
-            
+    //Check each cell in before and send result to after
+    for y in 0..<NumColumns{
+        for x in 0..<NumRows{
             
             if checkNeighbors( x, y: y) == true{
                 after[y][x] = true
@@ -129,14 +133,31 @@ func step(TwoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
             } else if checkNeighbors( x, y: y) == false{
                 after[y][x] = false
             }
-            
         }
         
     }
     
-   
+    /*
+     for x in 0..<TwoDimArrOfBools.count{//iterate 0-size of input array
+     for y in 0..<TwoDimArrOfBools[x].count{//iterate 0-9
+     
+     
+     if checkNeighbors( x, y: y) == true{
+     after[y][x] = true
+     numOfLivingCellsInAfter+=1
+     } else if checkNeighbors( x, y: y) == false{
+     after[y][x] = false
+     }
+     
+     }
+     
+     }
+     */
     
     return after
 }
+
+
+
 
 
