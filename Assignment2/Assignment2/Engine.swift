@@ -134,7 +134,7 @@ func step(TwoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         
     }
     
-    
+   
     
     return after
 }
