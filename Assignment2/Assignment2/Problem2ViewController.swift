@@ -13,13 +13,13 @@ import UIKit
 
 class Problem2ViewController: UIViewController {
     
-    //MARK: Properties
+    
     
     @IBOutlet weak var textViewProblem2: UITextView!
     
     @IBAction func runButtonProblem2(sender: UIButton) {
         
-        textViewProblem2.text = "Run Button Pressed"
+    textViewProblem2.text = "Run Button Pressed"
         
         
         
@@ -28,6 +28,7 @@ class Problem2ViewController: UIViewController {
         let NumRows: Int = 10
         
         var numOfLivingCellsInBefore: Int = 0
+        var numOfLivingCellsInAfter: Int = 0
         
         
         //create an array of type bool
@@ -80,7 +81,7 @@ class Problem2ViewController: UIViewController {
             if checkCoordinates( x-1, y: y-1 ) {
                 aliveCount+=1
             }
-            
+    
             //check top
             if checkCoordinates( x, y: y-1 ){
                 aliveCount+=1
@@ -112,10 +113,22 @@ class Problem2ViewController: UIViewController {
             }
             
             
-            if aliveCount == 2 || aliveCount == 3 {
-                //return alive
-                alive = true
+            //check to see if current cell is dead or alive first
+            switch before[x][y] {
+                
+            case true:
+                if aliveCount == 2 || aliveCount == 3 {
+                    alive = true
+                }
+            
+            case false:
+                if aliveCount == 3{
+                    alive = true
+                }
+                
             }
+            
+           
             
             // return if cell given in the parameter should be alive 
             //by checking its neighbors and taking in consideration if the coordinates go out of bounds
@@ -141,9 +154,6 @@ class Problem2ViewController: UIViewController {
         }
         
         
-        //count and print number of living cells in before
-        textViewProblem2.text="Number of living cells in before: \(numOfLivingCellsInBefore)"
-        
         
         
         
@@ -152,9 +162,10 @@ class Problem2ViewController: UIViewController {
             for x in 0..<NumRows{//iterate 0-9
                 
                 
-                if checkNeighbors( x, y: y) = true{
+                if checkNeighbors( x, y: y) == true{
                     after[y][x] = true
-                } else if checkNeighbors( x, y: y) = false{
+                    numOfLivingCellsInAfter+=1
+                } else if checkNeighbors( x, y: y) == false{
                     after[y][x] = false
                 }
                 
@@ -163,6 +174,9 @@ class Problem2ViewController: UIViewController {
             
         }
         
+        
+        //count and print number of living cells in After
+        textViewProblem2.text="Living cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
         
     }
     
