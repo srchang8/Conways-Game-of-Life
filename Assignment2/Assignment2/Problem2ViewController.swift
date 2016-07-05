@@ -111,6 +111,10 @@ class Problem2ViewController: UIViewController {
                 aliveCount+=1
             }
             
+            //check left
+            if checkCoordinates( x-1, y: y){
+                aliveCount+=1
+            }
             
             //check to see if current cell is dead or alive first
             switch before[x][y] {

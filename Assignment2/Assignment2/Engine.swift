@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
     
     var NumColumns = twoDimArrOfBools.count
@@ -97,6 +98,10 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
             aliveCount+=1
         }
         
+        //check left
+        if checkCoordinates( x-1, y: y){
+            aliveCount+=1
+        }
         
         //check to see if current cell is dead or alive first
         switch twoDimArrOfBools[x][y] {
@@ -145,21 +150,122 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
 
 
 
-func neighbors(x: Int, y: Int) -> Array<(x: Int, y: Int)>{
+
+//=============================================================================================================
+//Problem 4 starts here
+
+
+
+//takes in coordinates and spits out an array of tuples containing all the neighboring cells
+func neighbors(x: Int, y: Int) -> Array<(xCoord: Int, yCoord: Int)>{
     
-    var arrOfNeighborCoordinates: [(x: Int, y: Int)] = []
-    var topLeft = (x: x-1, y: y-1)
-    var top = (x: x, y: y-1)
-    var right = (x: x+1, y: y)
     
-    arrOfNeighborCoordinates[0] = topLeft
+    //create an array of tuples
+    var arrOfNeighborCoordinates:[(xCoord: Int, yCoord: Int)] = []
+    
+    let NumColumns = 10
+    let NumRows = 10
+    
+    //add the coordinates into the array of tuples
+    arrOfNeighborCoordinates += [(xCoord: x-1, yCoord: y-1)]//topLeft
+    arrOfNeighborCoordinates += [(xCoord: x, yCoord: y-1)]//top
+    arrOfNeighborCoordinates += [(xCoord: x+1, yCoord: y-1)]//topRight
+    arrOfNeighborCoordinates += [(xCoord: x+1, yCoord: y)]//right
+    arrOfNeighborCoordinates += [(xCoord: x+1, yCoord: y+1)]//bottomRight
+    arrOfNeighborCoordinates += [(xCoord: x, yCoord: y+1)]//bottom
+    arrOfNeighborCoordinates += [(xCoord: x-1, yCoord: y+1)]//bottomLeft
+    arrOfNeighborCoordinates += [(xCoord: x-1, yCoord: y)]//left
     
     
+    //coordinates that go out of bound of the 10x10 array should point back the next available cell
+    for i in 0..<arrOfNeighborCoordinates.count{
+        
+        if arrOfNeighborCoordinates[i].xCoord < 0 {
+            arrOfNeighborCoordinates[i].xCoord = NumColumns - 1
+        }
+        
+        if arrOfNeighborCoordinates[i].xCoord >= NumColumns {
+            arrOfNeighborCoordinates[i].xCoord = NumColumns - 1
+        }
+        
+        if arrOfNeighborCoordinates[i].yCoord < 0 {
+            arrOfNeighborCoordinates[i].yCoord = NumColumns - 1
+        }
+        
+        if arrOfNeighborCoordinates[i].yCoord >= NumRows {
+            arrOfNeighborCoordinates[i].yCoord = NumRows - 1
+        }
+        
+        
+    }
+    
+    //print("array[0] is  \(arrOfNeighborCoordinates[0])")
     
     return arrOfNeighborCoordinates
 }
 
 
+
+
+
+func step2(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>>{
+    
+    var NumColumns = twoDimArrOfBools.count
+    var NumRows = twoDimArrOfBools.count
+    var numOfLivingCellsInBefore: Int = 0
+    var numOfLivingCellsInAfter: Int = 0
+    
+    var after = Array(count:twoDimArrOfBools.count, repeatedValue: Array(count:twoDimArrOfBools.count, repeatedValue:false))
+    
+    
+    
+    //check if the cell is dead given the coordinate
+    func checkCoordinates( x: Int, y: Int) -> Bool{
+        
+        var checkedX: Int = x
+        var checkedY: Int = y
+        
+        
+        //check if coordinates are out of bounds
+        // when out of bounds is -1 or = size of array,
+        //it will convert to size -1 to be able to check other side of array
+        if x < 0 {
+            checkedX = NumColumns - 1
+        }
+        
+        if x >= NumColumns {
+            checkedX = NumColumns - 1
+            
+        }
+        
+        if y < 0 {
+            checkedY = NumRows - 1
+        }
+        
+        if y >= NumRows {
+            checkedY = NumRows - 1
+        }
+        
+        //check if cell is alive
+        return twoDimArrOfBools[checkedX][checkedY]
+        
+    }
+    
+    //Check each cell in before and send result to after
+    for y in 0..<NumColumns{
+        for x in 0..<NumRows{
+            
+           
+            
+        }
+        
+    }
+
+    
+    
+    
+    return after
+}
 
 
 
