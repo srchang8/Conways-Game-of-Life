@@ -83,17 +83,17 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         }
         
         //check bottom right
-        if checkCoordinates( x+1, y: y-1){
+        if checkCoordinates( x+1, y: y+1){
             
         }
         
         //check bottom
-        if checkCoordinates( x, y: y-1){
+        if checkCoordinates( x, y: y+1){
             aliveCount+=1
         }
         
         //check bottom left
-        if checkCoordinates( x-1, y: y-1){
+        if checkCoordinates( x-1, y: y+1){
             aliveCount+=1
         }
         
@@ -141,6 +141,31 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
     
     return after
 }
+
+
+
+
+func neighbors(x: Int, y: Int) -> Array<(x: Int, y: Int)>{
+    
+    var arrOfNeighborCoordinates: [(x: Int, y: Int)] = []
+    var topLeft = (x: x-1, y: y-1)
+    var top = (x: x, y: y-1)
+    var right = (x: x+1, y: y)
+    
+    arrOfNeighborCoordinates[0] = topLeft
+    
+    
+    
+    return arrOfNeighborCoordinates
+}
+
+
+
+
+
+
+
+
 
 
 

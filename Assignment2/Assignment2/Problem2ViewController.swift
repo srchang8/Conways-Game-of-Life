@@ -97,17 +97,17 @@ class Problem2ViewController: UIViewController {
             }
             
             //check bottom right
-            if checkCoordinates( x+1, y: y-1){
+            if checkCoordinates( x+1, y: y+1){
                 
             }
             
             //check bottom
-            if checkCoordinates( x, y: y-1){
+            if checkCoordinates( x, y: y+1){
                 aliveCount+=1
             }
             
             //check bottom left
-            if checkCoordinates( x-1, y: y-1){
+            if checkCoordinates( x-1, y: y+1){
                 aliveCount+=1
             }
             
