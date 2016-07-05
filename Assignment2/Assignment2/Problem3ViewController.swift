@@ -42,8 +42,6 @@ class Problem3ViewController: UIViewController {
         }
 
         
-       //afterStep = step(before)
-        
         
         for x in 0..<step(before).count{//iterate 0-size of input array
             for y in 0..<afterStep[x].count{//iterate 0-9
@@ -56,8 +54,6 @@ class Problem3ViewController: UIViewController {
             
         }
 
-        
-        
         
        textViewProblem3.text="Run button pressed \nLiving cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
         

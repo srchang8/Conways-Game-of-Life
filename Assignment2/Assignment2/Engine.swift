@@ -137,22 +137,7 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         
     }
     
-    /*
-     for x in 0..<TwoDimArrOfBools.count{//iterate 0-size of input array
-     for y in 0..<TwoDimArrOfBools[x].count{//iterate 0-9
-     
-     
-     if checkNeighbors( x, y: y) == true{
-     after[y][x] = true
-     numOfLivingCellsInAfter+=1
-     } else if checkNeighbors( x, y: y) == false{
-     after[y][x] = false
-     }
-     
-     }
-     
-     }
-     */
+
     
     return after
 }

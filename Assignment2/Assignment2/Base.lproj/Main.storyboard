@@ -90,21 +90,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuH-9e-Od6">
-                                <rect key="frame" x="145" y="193" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuH-9e-Od6">
+                                <rect key="frame" x="141" y="138" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CGj-Pg-1Dg"/>
+                                    <constraint firstAttribute="width" constant="30" id="O57-hP-Hga"/>
+                                    <constraint firstAttribute="width" secondItem="JuH-9e-Od6" secondAttribute="height" multiplier="1:1" id="viA-Qs-am2"/>
+                                </constraints>
                                 <state key="normal" title="Run"/>
                                 <connections>
                                     <action selector="runButtonProblem3:" destination="RNb-YY-swM" eventType="touchUpInside" id="vZ9-8I-uME"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-FL-eZV">
-                                <rect key="frame" x="40" y="262" width="200" height="100"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-FL-eZV">
+                                <rect key="frame" x="60" y="190" width="200" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="HyS-9c-n9v"/>
+                                    <constraint firstAttribute="width" constant="200" id="OfK-w6-O3M"/>
+                                    <constraint firstAttribute="height" constant="100" id="afd-Vw-m04"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="ihg-5T-RQS"/>
+                                    <constraint firstAttribute="width" secondItem="u9p-FL-eZV" secondAttribute="height" multiplier="2:1" id="zPO-Rd-olk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98363125500000004" blue="0.1222622969" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JuH-9e-Od6" firstAttribute="centerX" secondItem="3Ba-4e-WOQ" secondAttribute="centerX" id="HK8-4m-3t7"/>
+                            <constraint firstItem="JuH-9e-Od6" firstAttribute="top" secondItem="A4J-sb-L8S" secondAttribute="bottom" constant="74" id="NY9-af-kVU"/>
+                            <constraint firstItem="u9p-FL-eZV" firstAttribute="top" secondItem="JuH-9e-Od6" secondAttribute="bottom" constant="22" id="T4V-N6-LM0"/>
+                            <constraint firstItem="u9p-FL-eZV" firstAttribute="centerY" secondItem="3Ba-4e-WOQ" secondAttribute="centerY" id="gsh-cd-35w"/>
+                            <constraint firstItem="u9p-FL-eZV" firstAttribute="centerX" secondItem="3Ba-4e-WOQ" secondAttribute="centerX" id="kNh-WT-RXc"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

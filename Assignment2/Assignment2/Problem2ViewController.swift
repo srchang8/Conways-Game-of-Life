@@ -185,14 +185,7 @@ class Problem2ViewController: UIViewController {
     override func viewDidLoad() {
         
         //P1 #7
-        self.title = "Problem 2"// not sure if this works
-        
-        
-        
-        
-        
-        
-        
+        self.title = "Problem 2"
         
         
     }
