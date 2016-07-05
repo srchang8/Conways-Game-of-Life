@@ -210,9 +210,9 @@ func neighbors(x: Int, y: Int) -> Array<(xCoord: Int, yCoord: Int)>{
 
 func step2(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>>{
     
-    var numOfLivingCellsInBefore: Int = 0
     var numOfLivingCellsInAfter: Int = 0
     var livingNeighborCells: Int = 0
+    let numOfNeighBors: Int = 8
     
     
     //array to hold the updated value for cells
@@ -221,10 +221,10 @@ func step2(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>>{
     for i in 0..<twoDimArrOfBools.count{
         for j in 0..<twoDimArrOfBools.count{//i and j traverse through 10x10
             
-            for k in 0..<twoDimArrOfBools.count{// k traverses through all the neighbors that are stored in the array of tuples
+            for k in 0..<numOfNeighBors{// k traverses through all the neighbors that are stored in the array of tuples
 
                 //check the list of neighbors from twoDimArrOfBools[i][j]
-                if twoDimArrOfBools[neighbors(i, y: j)[i].xCoord][neighbors(i, y: j)[i].yCoord] == true{
+                if twoDimArrOfBools[neighbors(i, y: j)[k].xCoord][neighbors(i, y: j)[k].yCoord] == true{
                     livingNeighborCells+=1
                     
                 }
@@ -248,10 +248,6 @@ func step2(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>>{
         }
         
     }
-    
-   
-    
-    
     
     return after
 }
