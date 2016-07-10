@@ -6,12 +6,13 @@
 //  Copyright © 2016 Stephen Chang. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
+
 @IBDesignable//Let interface builder know that it should render the view directly in the canvas. Allows seeing how your custom views will appear without building and running your app after each change
-class GridView: UIView{
-    
+class GridView: UIView {
+
+
     @IBInspectable var rows: Int = 20
     @IBInspectable var cols: Int = 20
     
@@ -31,6 +32,13 @@ class GridView: UIView{
      var initialState = CellState.Empty
      var grid = Array(count:2, repeatedValue: initialState(count:2, repeatedValue: .Empty))
      */
-    
+
+
+    override func drawRect(rect: CGRect) {
+        // Drawing code
+    }
     
 }
+
+
+
