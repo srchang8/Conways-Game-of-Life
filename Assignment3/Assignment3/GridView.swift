@@ -16,15 +16,15 @@ class GridView: UIView {
     @IBInspectable var rows: Int = 20
     @IBInspectable var cols: Int = 20
     
-    @IBInspectable var livingColor: UIColor = UIColor.greenColor()
-    @IBInspectable var EmptyColor: UIColor = UIColor.grayColor()
-    @IBInspectable var bornColor: UIColor = UIColor.yellowColor()
-    @IBInspectable var diedColor: UIColor = UIColor.redColor()
-    @IBInspectable var gridColor: UIColor = UIColor.whiteColor()
+    @IBInspectable var livingColor: UIColor = UIColor()
+    @IBInspectable var EmptyColor: UIColor = UIColor()
+    @IBInspectable var bornColor: UIColor = UIColor()
+    @IBInspectable var diedColor: UIColor = UIColor()
+    
+    @IBInspectable var gridColor: CGColor!
     
     @IBInspectable var gridWidth: CGFloat = 0
-    
-    
+
     
     //a 2D array of CellState values called grid which reinitialize to all .Empty vales every time rows or cols changes using didSet keyword on the rows ancols values
     
@@ -33,10 +33,24 @@ class GridView: UIView {
 
 
     override func drawRect(rect: CGRect) {
-        // Drawing code
+        
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(context, gridWidth)
+        CGContextSetStrokeColorWithColor(context, gridColor)
+        /*UIColor.blackColor().CGColor*/
+        
+        
+        CGContextMoveToPoint(context, 30, 90)
+        CGContextAddLineToPoint(context, 200, 90)
+        
+        //Actually draw the path
+        CGContextStrokePath(context)
+        
     }
     
 }
+
+
 
 
 
