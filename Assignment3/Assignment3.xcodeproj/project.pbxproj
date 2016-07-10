@@ -61,11 +61,11 @@
 				FC6A8BF71D32C7B100468CE7 /* AppDelegate.swift */,
 				FC6A8BF91D32C7B100468CE7 /* ViewController.swift */,
 				FC6A8BFB1D32C7B100468CE7 /* Main.storyboard */,
+				FC6A8C0C1D32CE4E00468CE7 /* GridView.swift */,
+				FC6A8C0E1D32DA9C00468CE7 /* enum.swift */,
 				FC6A8BFE1D32C7B100468CE7 /* Assets.xcassets */,
 				FC6A8C001D32C7B100468CE7 /* LaunchScreen.storyboard */,
 				FC6A8C031D32C7B100468CE7 /* Info.plist */,
-				FC6A8C0C1D32CE4E00468CE7 /* GridView.swift */,
-				FC6A8C0E1D32DA9C00468CE7 /* enum.swift */,
 			);
 			path = Assignment3;
 			sourceTree = "<group>";
