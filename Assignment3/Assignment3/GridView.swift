@@ -28,10 +28,8 @@ class GridView: UIView {
     
     //a 2D array of CellState values called grid which reinitialize to all .Empty vales every time rows or cols changes using didSet keyword on the rows ancols values
     
-    /*
-     var initialState = CellState.Empty
-     var grid = Array(count:2, repeatedValue: initialState(count:2, repeatedValue: .Empty))
-     */
+    var grid = Array(count:2, repeatedValue: Array(count:2, repeatedValue: CellState.Empty))
+    
 
 
     override func drawRect(rect: CGRect) {
