@@ -31,7 +31,20 @@ class GridView: UIView {
     var grid = Array(count:2, repeatedValue: Array(count:2, repeatedValue: CellState.Empty))
     
 
-    let context = UIGraphicsGetCurrentContext()
+    override func drawRect(rect: CGRect){
+        
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(context, gridWidth)
+        CGContextSetStrokeColorWithColor(context, gridColor)
+        
+        //Straight line
+        CGContextMoveToPoint(context, 30, 30)
+        CGContextAddLineToPoint(context, 550, 30)
+        
+        //Actually draw the path
+        CGContextStrokePath(context)
+    }
+   
     
         
     
