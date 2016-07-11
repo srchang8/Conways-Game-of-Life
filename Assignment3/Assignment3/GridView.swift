@@ -93,21 +93,30 @@ class GridView: UIView {
         
         
         
-        //Draw Circles
+        //Draw Circles on all the cells
         
-        fillCell(19, yCoord: 19)
+        for y in 0..<cols{
+            for x in 0..<rows{
+                
+                let xFromIntToCGF = CGFloat(x)
+                let yFromIntToCGF = CGFloat(y)
+                fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+            }
+        }
+       // fillCell(19, yCoord: 19)
         
         
         
     }//override rect function closing bracket
     
-    func checkGridArray(var xCoord: CGFloat, var yCoord: CGFloat){
-        
-    }
     
+    
+    
+    //MARK: functions
     //takes coordinates and fills the the respective cell
     func fillCell(var xCoord: CGFloat, var yCoord: CGFloat){
         
+        //cast CGFloat to int
         var xCoordInt = Int(xCoord)
         var yCoordInt = Int(yCoord)
         
@@ -131,6 +140,7 @@ class GridView: UIView {
             emptyColor.setFill()
         }
         
+        //fill the circle
         circlePath.fill()
         
     }
@@ -138,17 +148,6 @@ class GridView: UIView {
     
     
     
-    /*
- draws a circle inside of every grid cell and fills the circle with the appropriate color for the grid cell 
-     drawn from the grid array.  
-     
-     e.g. for grid cell (0,0) fetch the zero'th array from grid and then fetch the CellState value from the zero'th position of the array and color the circle using the color specified in IB. Repeat for the other values
- */
-    
-    
-    
-    
-    //MARK: functions
     //function that takes in coordinates and draws a horizontal line
     func drawRowLine(var xCoord: CGFloat, var yCoord: CGFloat)
     {
