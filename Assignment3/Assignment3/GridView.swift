@@ -13,8 +13,17 @@ import UIKit
 class GridView: UIView {
 
 
-    @IBInspectable var rows: Int = 20
-    @IBInspectable var cols: Int = 20
+    @IBInspectable var rows: Int = 20 {
+        didSet {
+            print("rows has changed, grid array will all be set to empty")
+        }
+    }
+    
+    @IBInspectable var cols: Int = 20 {
+        didSet {
+            print("cols has changed, grid array will all be set to empty")
+        }
+    }
     
     @IBInspectable var livingColor: UIColor = UIColor()
     @IBInspectable var emptyColor: UIColor = UIColor()
@@ -27,7 +36,7 @@ class GridView: UIView {
     
 
     
-    //a 2D array of CellState values called grid which reinitialize to all .Empty vales every time rows or cols changes using didSet keyword on the rows ancols values
+    //a 2D array of CellState values called grid which reinitialize to all .Empty values every time rows or cols changes using didSet keyword on the rows and cols values
     
     var grid = Array(count:20, repeatedValue: Array(count:20, repeatedValue: CellState.Empty))
     
