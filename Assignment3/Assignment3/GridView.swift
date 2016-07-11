@@ -24,6 +24,7 @@ class GridView: UIView {
     @IBInspectable var gridColor: CGColor!
     
     @IBInspectable var gridWidth: CGFloat = 0
+    
 
     
     //a 2D array of CellState values called grid which reinitialize to all .Empty vales every time rows or cols changes using didSet keyword on the rows ancols values
@@ -90,51 +91,21 @@ class GridView: UIView {
         
         
         
-        
-        
-            var startAngle: Float = Float(2 * M_PI)
-            var endAngle: Float = 0.0
-            
-            // Drawing code
-            // Set the radius
-            let strokeWidth = 1.0
-        
-            //let radius = CGFloat((CGFloat(self.frame.size.width) - CGFloat(strokeWidth)) / 2)
-            let radius = CGFloat(5)
-            
-            // Get the context
-            var circleContext = UIGraphicsGetCurrentContext()
-            
-            // Find the middle of the circle
-            //let center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
-            
-            // Set the stroke color
-            CGContextSetStrokeColorWithColor(circleContext, gridColor)//changed to grid color
-            
-            // Set the line width
-            CGContextSetLineWidth(circleContext, CGFloat(strokeWidth))
-            
-            // Set the fill color (if you are filling the circle)
-            CGContextSetFillColorWithColor(circleContext, UIColor.clearColor().CGColor)
-            
-            // Rotate the angles so that the inputted angles are intuitive like the clock face: the top is 0 (or 2π), 
-            //the right is π/2, the bottom is π and the left is 3π/2.
-            // In essence, this appears like a unit circle rotated π/2 anti clockwise.
-            startAngle = startAngle - Float(M_PI_2)
-            endAngle = endAngle - Float(M_PI_2)
-            
-            // Draw the arc around the circle
-            //CGContextAddArc(circleContext, center.x, center.y, CGFloat(radius), CGFloat(startAngle), CGFloat(endAngle), 0)
-        
-            CGContextAddArc(circleContext, 55, 55, CGFloat(radius), CGFloat(startAngle), CGFloat(endAngle), 0)
-            
-            // Draw the arc
-            CGContextDrawPath(circleContext, CGPathDrawingMode.FillStroke)
-            
+        //Draw Circle
         
         
         
         
+     
+        
+        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(70, 70, 10, 10))
+        var ovalPath1 = UIBezierPath(ovalInRect: CGRectMake(100, 100, 10, 10))
+        UIColor.grayColor().setFill()
+        
+        //var ovalPath1 = UIBezierPath(ovalInRect: CGRectMake(50, 50, 5, 5))
+        
+        ovalPath1.fill()
+        ovalPath.fill()
         
     }//override rect function closing bracket
         
@@ -144,7 +115,9 @@ class GridView: UIView {
     
     
     
-    
+    /*
+ draws a circle inside of every grid cell and fills the circle with the appropriate color for the grid cell drawn from the grid array.  e.g. for grid cell (0,0) fetch the zero'th array from grid and then fetch the CellState value from the zero'th position of the array and color the circle using the color specified in IB. Repeat for the other values
+ */
     
     
     
