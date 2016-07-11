@@ -33,51 +33,42 @@ class GridView: UIView {
 
     override func drawRect(rect: CGRect){
         
-        let context = UIGraphicsGetCurrentContext()//the object is the brush
-        CGContextSetLineWidth(context, gridWidth)
-        CGContextSetStrokeColorWithColor(context, gridColor)
-        
-       
-        var xCoord: CGFloat = 550
-        var yCoord: CGFloat = 30
         
         
-        for var y = 0; y < rows; y+=1 {
-            
-            
-            
-            //Straight line
-            CGContextMoveToPoint(context, 30, 30)//start here
-            CGContextAddLineToPoint(context, xCoord, yCoord)//end here
-            
-            //length of each horizontal line is 520
-            xCoord = xCoord + 520
-            
-            //Distance from start point to next start point
-            yCoord = yCoord + 10
-            
-            
+        var countRows: Int = 0
         
-            //Actually draw the path
-            CGContextStrokePath(context)
+        //y*20 because we want 20 rows
+        for var y: CGFloat = 30; y < 230; y+=10 {
             
-        }
-    }
-   
+            drawRowLine(30, yCoord: y)
+            countRows++
 
+            
+            if countRows == rows {
+                print("For Loop cannot run more than number of rows designated")
+                break
+            }
+            
+        
+        }
+ 
+        
+        
+    }
+    
+    
     //function that takes in coordinates and draws a line from that
-    func drawRowLine(xCoord: CGFloat, yCoord: CGFloat){
+    func drawRowLine(var xCoord: CGFloat, var yCoord: CGFloat){
         
         let brushContext = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(brushContext, gridWidth)
         CGContextSetStrokeColorWithColor(brushContext, gridColor)
         
-        let lengthOfLine: Int = 500
-        let heightBetweenLines: Int = 30
+        let lengthOfLine: CGFloat = 350
         
         CGContextMoveToPoint(brushContext, xCoord, yCoord)//start here
         
-        
+        xCoord = xCoord + lengthOfLine//move right
         
         CGContextAddLineToPoint(brushContext, xCoord, yCoord)//end here
         
@@ -88,11 +79,11 @@ class GridView: UIView {
         
         
     }
+
+
     
 }
-//function that takes in coordinates and returns a coordinate for CGContextAddLineToPoint
 
-//
 
 
 
