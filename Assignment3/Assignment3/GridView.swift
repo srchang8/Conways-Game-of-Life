@@ -31,56 +31,132 @@ class GridView: UIView {
     var grid = Array(count:2, repeatedValue: Array(count:2, repeatedValue: CellState.Empty))
     
 
-    override func drawRect(rect: CGRect){
-        
-        
-        
+    
+    
+    
+    override func drawRect(rect: CGRect)
+    {
         var countRows: Int = 0
+        var countColumns: Int = 0
+        let xStart: CGFloat = 50//start position for x coordinate
+        let yStart: CGFloat = 50// start position for y coordinate
         
-        //y*20 because we want 20 rows
-        for var y: CGFloat = 30; y < 230; y+=10 {
+        
+        
+        drawRowLine(xStart, yCoord: yStart)
+        
+        
+        var xTest: CGFloat
+        var yTest: CGFloat
+        
+        
+        
+        
+        //Draw row lines
+        //loop creates 20 horizontal lines starting at (30,30)
+        //y+(20rows * 10(height between lines) because we want 20 rows
+        for var y: CGFloat = yStart; y < 200; y+=10
+        {
             
-            drawRowLine(30, yCoord: y)
-            countRows++
+            drawRowLine(xStart, yCoord: y)
+            
+            countRows+=1
 
             
-            if countRows == rows {
+            if countRows == rows
+            {
                 print("For Loop cannot run more than number of rows designated")
-                break
+                print("number of rows before break \(countRows)")
+                //break
             }
             
         
         }
  
+        print("number of rows \(countRows)")
         
+        
+        
+        //draw column lines
+        for var x: CGFloat = xStart; x < 200; x+=10
+        {
+            
+            drawColumnLine(x, yCoord: yStart)
+            
+            countColumns+=1
+            
+            
+            if countRows == cols
+            {
+                print("For Loop cannot run more than number of rows designated")
+                print("number of columns before break \(countColumns)")
+                //break
+            }
+            
+            
+        }
+        
+        print("number of columns \(countRows)")
         
     }
+        
+        
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK: functions
     //function that takes in coordinates and draws a line from that
-    func drawRowLine(var xCoord: CGFloat, var yCoord: CGFloat){
+    func drawRowLine(var xCoord: CGFloat, var yCoord: CGFloat)
+    {
         
-        let brushContext = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(brushContext, gridWidth)
-        CGContextSetStrokeColorWithColor(brushContext, gridColor)
+        let rowContext = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(rowContext, 1)
+        CGContextSetStrokeColorWithColor(rowContext, gridColor)
         
-        let lengthOfLine: CGFloat = 350
+        //MARK: make lines longer change lengthOfLine - this sets the grid width
+        let lengthOfLine: CGFloat = 150
         
-        CGContextMoveToPoint(brushContext, xCoord, yCoord)//start here
+        CGContextMoveToPoint(rowContext, xCoord, yCoord)//start here
         
         xCoord = xCoord + lengthOfLine//move right
         
-        CGContextAddLineToPoint(brushContext, xCoord, yCoord)//end here
+        CGContextAddLineToPoint(rowContext, xCoord, yCoord)//end here
         
         
         //Actually draw the path
-        CGContextStrokePath(brushContext)
-        
-        
+        CGContextStrokePath(rowContext)
         
     }
 
+    
+    
+    
+    func drawColumnLine( var xCoord: CGFloat, var yCoord: CGFloat)
+    {
+        let columnContext = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(columnContext, 1)
+        CGContextSetStrokeColorWithColor(columnContext, gridColor)
+        
+        let lengthOfLine: CGFloat = 150
+        
+        CGContextMoveToPoint(columnContext, xCoord, yCoord)//start here
+        
+        yCoord = yCoord + lengthOfLine//move down
+        
+        CGContextAddLineToPoint(columnContext, xCoord, yCoord)//end here
+        
+        
+        //Actually draw the path
+        CGContextStrokePath(columnContext)
 
+    }
     
 }
 
