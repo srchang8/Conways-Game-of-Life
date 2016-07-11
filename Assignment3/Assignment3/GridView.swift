@@ -52,10 +52,8 @@ class GridView: UIView {
         
         
         
-        //Draw row lines
-        //loop creates 20 horizontal lines starting at (30,30)
-        //y+(20rows * 10(height between lines) because we want 20 rows
-        for var y: CGFloat = yStart; y < 200; y+=10
+        //Draw rows
+        for var y: CGFloat = yStart; y <= 250; y+=10
         {
             
             drawRowLine(xStart, yCoord: y)
@@ -63,11 +61,11 @@ class GridView: UIView {
             countRows+=1
 
             
-            if countRows == rows
+            if countRows > rows
             {
                 print("For Loop cannot run more than number of rows designated")
                 print("number of rows before break \(countRows)")
-                //break
+                break
             }
             
         
@@ -77,8 +75,8 @@ class GridView: UIView {
         
         
         
-        //draw column lines
-        for var x: CGFloat = xStart; x < 200; x+=10
+        //draw columns 
+        for var x: CGFloat = xStart; x <= 250; x+=10
         {
             
             drawColumnLine(x, yCoord: yStart)
@@ -86,17 +84,17 @@ class GridView: UIView {
             countColumns+=1
             
             
-            if countRows == cols
+            if countColumns > cols
             {
-                print("For Loop cannot run more than number of rows designated")
+                print("For Loop cannot run more than number of columns designated")
                 print("number of columns before break \(countColumns)")
-                //break
+                break
             }
             
             
         }
         
-        print("number of columns \(countRows)")
+        //print("number of columns \(countRows)")
         
     }
         
@@ -112,7 +110,7 @@ class GridView: UIView {
     
     
     //MARK: functions
-    //function that takes in coordinates and draws a line from that
+    //function that takes in coordinates and draws a horizontal line
     func drawRowLine(var xCoord: CGFloat, var yCoord: CGFloat)
     {
         
@@ -120,8 +118,8 @@ class GridView: UIView {
         CGContextSetLineWidth(rowContext, 1)
         CGContextSetStrokeColorWithColor(rowContext, gridColor)
         
-        //MARK: make lines longer change lengthOfLine - this sets the grid width
-        let lengthOfLine: CGFloat = 150
+        //MARK: make row lines longer - this sets the grid width?
+        let lengthOfLine: CGFloat = 200
         
         CGContextMoveToPoint(rowContext, xCoord, yCoord)//start here
         
@@ -137,14 +135,15 @@ class GridView: UIView {
 
     
     
-    
+    //takes in coordinates and draws vertical line
     func drawColumnLine( var xCoord: CGFloat, var yCoord: CGFloat)
     {
         let columnContext = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(columnContext, 1)
         CGContextSetStrokeColorWithColor(columnContext, gridColor)
         
-        let lengthOfLine: CGFloat = 150
+        //MARK: makes columns longer
+        let lengthOfLine: CGFloat = 200
         
         CGContextMoveToPoint(columnContext, xCoord, yCoord)//start here
         
