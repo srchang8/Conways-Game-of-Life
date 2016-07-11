@@ -43,12 +43,6 @@ class GridView: UIView {
         
         
         
-        drawRowLine(xStart, yCoord: yStart)
-        
-        
-        var xTest: CGFloat
-        var yTest: CGFloat
-        
         
         
         
@@ -70,12 +64,11 @@ class GridView: UIView {
             
         
         }
- 
-        print("number of rows \(countRows)")
+            //print("number of rows \(countRows)")
         
         
         
-        //draw columns 
+        //draw columns
         for var x: CGFloat = xStart; x <= 250; x+=10
         {
             
@@ -93,10 +86,57 @@ class GridView: UIView {
             
             
         }
+            //print("number of columns \(countRows)")
         
-        //print("number of columns \(countRows)")
         
-    }
+        
+        
+        
+            var startAngle: Float = Float(2 * M_PI)
+            var endAngle: Float = 0.0
+            
+            // Drawing code
+            // Set the radius
+            let strokeWidth = 1.0
+        
+            //let radius = CGFloat((CGFloat(self.frame.size.width) - CGFloat(strokeWidth)) / 2)
+            let radius = CGFloat(5)
+            
+            // Get the context
+            var circleContext = UIGraphicsGetCurrentContext()
+            
+            // Find the middle of the circle
+            //let center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
+            
+            // Set the stroke color
+            CGContextSetStrokeColorWithColor(circleContext, gridColor)//changed to grid color
+            
+            // Set the line width
+            CGContextSetLineWidth(circleContext, CGFloat(strokeWidth))
+            
+            // Set the fill color (if you are filling the circle)
+            CGContextSetFillColorWithColor(circleContext, UIColor.clearColor().CGColor)
+            
+            // Rotate the angles so that the inputted angles are intuitive like the clock face: the top is 0 (or 2π), 
+            //the right is π/2, the bottom is π and the left is 3π/2.
+            // In essence, this appears like a unit circle rotated π/2 anti clockwise.
+            startAngle = startAngle - Float(M_PI_2)
+            endAngle = endAngle - Float(M_PI_2)
+            
+            // Draw the arc around the circle
+            //CGContextAddArc(circleContext, center.x, center.y, CGFloat(radius), CGFloat(startAngle), CGFloat(endAngle), 0)
+        
+            CGContextAddArc(circleContext, 55, 55, CGFloat(radius), CGFloat(startAngle), CGFloat(endAngle), 0)
+            
+            // Draw the arc
+            CGContextDrawPath(circleContext, CGPathDrawingMode.FillStroke)
+            
+        
+        
+        
+        
+        
+    }//override rect function closing bracket
         
         
     
