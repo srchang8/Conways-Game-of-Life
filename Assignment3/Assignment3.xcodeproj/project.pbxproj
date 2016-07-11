@@ -14,6 +14,7 @@
 		FC6A8C021D32C7B100468CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6A8C001D32C7B100468CE7 /* LaunchScreen.storyboard */; };
 		FC6A8C0D1D32CE4E00468CE7 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A8C0C1D32CE4E00468CE7 /* GridView.swift */; };
 		FC6A8C0F1D32DA9C00468CE7 /* enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A8C0E1D32DA9C00468CE7 /* enum.swift */; };
+		FC73A2AE1D34489C00E680C9 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73A2AD1D34489B00E680C9 /* Engine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FC6A8C031D32C7B100468CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC6A8C0C1D32CE4E00468CE7 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		FC6A8C0E1D32DA9C00468CE7 /* enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enum.swift; sourceTree = "<group>"; };
+		FC73A2AD1D34489B00E680C9 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +61,11 @@
 			isa = PBXGroup;
 			children = (
 				FC6A8BF71D32C7B100468CE7 /* AppDelegate.swift */,
-				FC6A8BF91D32C7B100468CE7 /* ViewController.swift */,
 				FC6A8BFB1D32C7B100468CE7 /* Main.storyboard */,
+				FC6A8BF91D32C7B100468CE7 /* ViewController.swift */,
 				FC6A8C0C1D32CE4E00468CE7 /* GridView.swift */,
 				FC6A8C0E1D32DA9C00468CE7 /* enum.swift */,
+				FC73A2AD1D34489B00E680C9 /* Engine.swift */,
 				FC6A8BFE1D32C7B100468CE7 /* Assets.xcassets */,
 				FC6A8C001D32C7B100468CE7 /* LaunchScreen.storyboard */,
 				FC6A8C031D32C7B100468CE7 /* Info.plist */,
@@ -145,6 +148,7 @@
 				FC6A8C0D1D32CE4E00468CE7 /* GridView.swift in Sources */,
 				FC6A8C0F1D32DA9C00468CE7 /* enum.swift in Sources */,
 				FC6A8BF81D32C7B100468CE7 /* AppDelegate.swift in Sources */,
+				FC73A2AE1D34489C00E680C9 /* Engine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +300,7 @@
 				FC6A8C081D32C7B100468CE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
