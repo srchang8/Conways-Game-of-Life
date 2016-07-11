@@ -17,7 +17,7 @@ class GridView: UIView {
     @IBInspectable var cols: Int = 20
     
     @IBInspectable var livingColor: UIColor = UIColor()
-    @IBInspectable var EmptyColor: UIColor = UIColor()
+    @IBInspectable var emptyColor: UIColor = UIColor()
     @IBInspectable var bornColor: UIColor = UIColor()
     @IBInspectable var diedColor: UIColor = UIColor()
     
@@ -31,7 +31,9 @@ class GridView: UIView {
     
     var grid = Array(count:20, repeatedValue: Array(count:20, repeatedValue: CellState.Empty))
     
-
+    
+    let xStart: CGFloat = 50//start position for x coordinate
+    let yStart: CGFloat = 50// start position for y coordinate
     
     
     
@@ -39,8 +41,7 @@ class GridView: UIView {
     {
         var countRows: Int = 0
         var countColumns: Int = 0
-        let xStart: CGFloat = 50//start position for x coordinate
-        let yStart: CGFloat = 50// start position for y coordinate
+        
         
         
         
@@ -94,20 +95,43 @@ class GridView: UIView {
         
         //Draw Circles
         
-        //put into function
-        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(70, 70, 10, 10))
-        var ovalPath1 = UIBezierPath(ovalInRect: CGRectMake(100, 100, 10, 10))
-        UIColor.grayColor().setFill()
+        fillCell(19, yCoord: 19)
         
-        //var ovalPath1 = UIBezierPath(ovalInRect: CGRectMake(50, 50, 5, 5))
         
-        ovalPath1.fill()
-        ovalPath.fill()
         
     }//override rect function closing bracket
+    
+    func checkGridArray(var xCoord: CGFloat, var yCoord: CGFloat){
         
-        
+    }
+    
+    //takes coordinates and fills the the respective cell
     func fillCell(var xCoord: CGFloat, var yCoord: CGFloat){
+        
+        var xCoordInt = Int(xCoord)
+        var yCoordInt = Int(yCoord)
+        
+        //print("test \(grid[xCoordInt][yCoordInt])")
+        
+        //grid starts at (50, 50) or (xCoord, yCoord)
+        xCoord = xCoord*10 + xStart
+        yCoord = yCoord*10 + yStart
+        
+        //var myIntValue = Int(myFloatValue)
+
+        
+        let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
+        
+        
+        if toggle(grid[xCoordInt][yCoordInt]) == .Living {
+            livingColor.setFill()
+        }
+        
+        if toggle(grid[xCoordInt][yCoordInt]) == .Empty {
+            emptyColor.setFill()
+        }
+        
+        circlePath.fill()
         
     }
     

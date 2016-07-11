@@ -11,7 +11,7 @@ import UIKit
 
 enum CellState : String {
     
-    case Living = "Living String", Empty = "Empty", Born = "Born", Died = "Died"
+    case Living = "Living", Empty = "Empty", Born = "Born", Died = "Died"
     
     
     //description should use a switch statement and return the raw value
@@ -49,20 +49,19 @@ enum CellState : String {
      }
  
     
+}
+
+func toggle( value: CellState) -> CellState{
     
-    func toggle( value: CellState) -> CellState{
-        
-        var cellValue: CellState!//indicate that it could be nil
-        
-        if value == .Empty || value == .Died{
-            cellValue = .Living
-        }
-        
-        if value == .Living || value == .Born{
-            cellValue = .Empty
-        }
-        
-        return cellValue
+    var cellValue: CellState!//indicate that it could be nil
+    
+    if value == .Empty || value == .Died{
+        cellValue = .Living
     }
     
+    if value == .Living || value == .Born{
+        cellValue = .Empty
+    }
+    
+    return cellValue
 }
