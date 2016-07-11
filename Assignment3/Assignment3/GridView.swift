@@ -29,7 +29,7 @@ class GridView: UIView {
     
     //a 2D array of CellState values called grid which reinitialize to all .Empty vales every time rows or cols changes using didSet keyword on the rows ancols values
     
-    var grid = Array(count:2, repeatedValue: Array(count:2, repeatedValue: CellState.Empty))
+    var grid = Array(count:20, repeatedValue: Array(count:20, repeatedValue: CellState.Empty))
     
 
     
@@ -44,7 +44,8 @@ class GridView: UIView {
         
         
         
-        
+        //20x20 going
+        //cell size 10x10
         
         
         //Draw rows
@@ -91,13 +92,9 @@ class GridView: UIView {
         
         
         
-        //Draw Circle
+        //Draw Circles
         
-        
-        
-        
-     
-        
+        //put into function
         var ovalPath = UIBezierPath(ovalInRect: CGRectMake(70, 70, 10, 10))
         var ovalPath1 = UIBezierPath(ovalInRect: CGRectMake(100, 100, 10, 10))
         UIColor.grayColor().setFill()
@@ -110,13 +107,18 @@ class GridView: UIView {
     }//override rect function closing bracket
         
         
-    
+    func fillCell(var xCoord: CGFloat, var yCoord: CGFloat){
+        
+    }
     
     
     
     
     /*
- draws a circle inside of every grid cell and fills the circle with the appropriate color for the grid cell drawn from the grid array.  e.g. for grid cell (0,0) fetch the zero'th array from grid and then fetch the CellState value from the zero'th position of the array and color the circle using the color specified in IB. Repeat for the other values
+ draws a circle inside of every grid cell and fills the circle with the appropriate color for the grid cell 
+     drawn from the grid array.  
+     
+     e.g. for grid cell (0,0) fetch the zero'th array from grid and then fetch the CellState value from the zero'th position of the array and color the circle using the color specified in IB. Repeat for the other values
  */
     
     
