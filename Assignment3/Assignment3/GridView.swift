@@ -166,6 +166,14 @@ class GridView: UIView {
         
         
         
+        
+            
+            
+                
+    
+        
+        /*
+        
         //put array named: after into the grid
         for y in 0..<cols{
             for x in 0..<rows{
@@ -181,6 +189,8 @@ class GridView: UIView {
                 
             }
         }
+        
+      */
     
 
     
@@ -289,7 +299,10 @@ class GridView: UIView {
 
     }
     
-}
+    
+    
+    
+}//Last bracket
 
 
 

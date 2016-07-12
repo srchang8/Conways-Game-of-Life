@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     
    
-  
+  /*
     
     @IBAction func RunButton(sender: AnyObject) {
         
@@ -25,13 +25,38 @@ class ViewController: UIViewController {
         //update the grid
         
         
-        
+       
         
     }
     
+    */
     
-    
-    
+    @IBAction func runButton(sender: UIButton) {
+        
+        print("button pressed")
+        
+        
+       /*
+            //put array named: after into the grid
+            for y in 0..<cols{
+                for x in 0..<rows{
+                    
+                    //cast into to GCF
+                    let xFromIntToCGF = CGFloat(x)
+                    let yFromIntToCGF = CGFloat(y)
+                    
+                    if step(before)[y][x] == true {
+                        
+                        fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                    }
+                    
+                }
+            }
+            
+        */
+        
+    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
