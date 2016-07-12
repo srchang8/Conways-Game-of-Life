@@ -11,8 +11,8 @@ import UIKit
 
 @IBDesignable//Let interface builder know that it should render the view directly in the canvas. Allows seeing how your custom views will appear without building and running your app after each change
 class GridView: UIView {
-
-
+    
+    
     @IBInspectable var rows: Int = 20 {
         didSet {
             print("rows has changed, grid array will all be set to empty")
@@ -34,7 +34,7 @@ class GridView: UIView {
     
     @IBInspectable var gridWidth: CGFloat = 0
     
-
+    
     
     //a 2D array of CellState values called grid which reinitialize to all .Empty values every time rows or cols changes using didSet keyword on the rows and cols values
     
@@ -94,7 +94,7 @@ class GridView: UIView {
             drawRowLine(xStart, yCoord: y)
             
             countRows+=1
-
+            
             
             if countRows > rows
             {
@@ -103,9 +103,9 @@ class GridView: UIView {
                 break
             }
             
-        
+            
         }
-            //print("number of rows \(countRows)")
+        //print("number of rows \(countRows)")
         
         
         
@@ -127,26 +127,26 @@ class GridView: UIView {
             
             
         }
-            //print("number of columns \(countRows)")
+        //print("number of columns \(countRows)")
         
         
         
         //MARK: Draw Circles
         
         /* this is hw3 part4
-        for y in 0..<cols{
-            for x in 0..<rows{
-                
-                //cast into to GCF
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-                
-                fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                
-                
-            }
-        }
-        */
+         for y in 0..<cols{
+         for x in 0..<rows{
+         
+         //cast into to GCF
+         let xFromIntToCGF = CGFloat(x)
+         let yFromIntToCGF = CGFloat(y)
+         
+         fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+         
+         
+         }
+         }
+         */
         
         //put array named before into the grid
         for y in 0..<cols{
@@ -167,49 +167,49 @@ class GridView: UIView {
         
         
         
-            
-            
-                
-    
+        
+        
+        
+        
         
         /*
+         
+         //put array named: after into the grid
+         for y in 0..<cols{
+         for x in 0..<rows{
+         
+         //cast into to GCF
+         let xFromIntToCGF = CGFloat(x)
+         let yFromIntToCGF = CGFloat(y)
+         
+         if step(before)[y][x] == true {
+         
+         fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+         }
+         
+         }
+         }
+         
+         */
         
-        //put array named: after into the grid
-        for y in 0..<cols{
-            for x in 0..<rows{
-                
-                //cast into to GCF
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-                
-                if step(before)[y][x] == true {
-                    
-                    fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                }
-                
-            }
-        }
         
-      */
-    
-
-    
+        
         /*
-        //Check each cell in before and send result to after
-        for y in 0..<NumColumns{//iterate 0-9
-            for x in 0..<NumRows{//iterate 0-9
-                
-                if checkNeighbors( x, y: y) == true{
-                    afterStep[y][x] = true
-                    numOfLivingCellsInAfter+=1
-                } else if checkNeighbors( x, y: y) == false{
-                    afterStep[y][x] = false
-                }
-                
-            }
-            
-        }
-        */
+         //Check each cell in before and send result to after
+         for y in 0..<NumColumns{//iterate 0-9
+         for x in 0..<NumRows{//iterate 0-9
+         
+         if checkNeighbors( x, y: y) == true{
+         afterStep[y][x] = true
+         numOfLivingCellsInAfter+=1
+         } else if checkNeighbors( x, y: y) == false{
+         afterStep[y][x] = false
+         }
+         
+         }
+         
+         }
+         */
         
     }//override rect function closing bracket
     
@@ -228,8 +228,8 @@ class GridView: UIView {
         //grid starts at (50, 50) or (xCoord, yCoord)
         xCoord = xCoord*10 + xStart
         yCoord = yCoord*10 + yStart
-
-
+        
+        
         //create circle context with at position (xCoord, yCoord) with size 10x10
         let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
         
@@ -274,7 +274,7 @@ class GridView: UIView {
         CGContextStrokePath(rowContext)
         
     }
-
+    
     
     
     //takes in coordinates and draws vertical line
@@ -296,7 +296,7 @@ class GridView: UIView {
         
         //Actually draw the path
         CGContextStrokePath(columnContext)
-
+        
     }
     
     

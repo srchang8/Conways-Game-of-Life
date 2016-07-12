@@ -32,8 +32,8 @@ enum CellState : String {
         
     }
     
-
-     func allValues() -> Array<CellState>{
+    
+    func allValues() -> Array<CellState>{
         
         var arrAllValues = Array(count:4, repeatedValue: CellState.Empty)
         
@@ -44,10 +44,10 @@ enum CellState : String {
         
         return arrAllValues
         
-     //returns an array of all available values for the enum
-
-     }
- 
+        //returns an array of all available values for the enum
+        
+    }
+    
     
 }
 
