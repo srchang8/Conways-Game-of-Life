@@ -171,7 +171,6 @@ class Problem2ViewController: UIViewController {
                     after[y][x] = false
                 }
                 
-                //print(before[y][x]) //print entire array to see if random variables generated correctly
             }
             
         }
