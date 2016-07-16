@@ -17,11 +17,12 @@ class ViewController: UIViewController {
     
     
     
-    
      
     @IBAction func runButton(sender: UIButton) {
+        
+        //create after array variable
+        let after = step(gridView.before)
         //var grid = gridView.grid
-        //gridView.grid = //...
          
        
         
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
                 let yFromIntToCGF = CGFloat(y)
                 
                 
-                if step(gridView.before)[y][x] == true {
+                if after[y][x] == true {
                     
                     //draw circle in the grid
                     gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
@@ -48,16 +49,17 @@ class ViewController: UIViewController {
                     //update enum grid
                     gridView.grid[y][x] = .Living
                     
-                }
-                else if step(gridView.before)[y][x] == false {
+                    //update before so it become the new after
                     
-                    //issue is when it gets here false could either mean dead or empty
-                    //how does step tell us if it was empty or dead
-                    //how do you know if it should be Died or empty
+                    
+                }
+                else if after[y][x] == false {
+                    
                     
                     //update enum grid
                     gridView.grid[y][x] = .Died
                     
+                    //empty the cell
                     gridView.emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
                    
                     
@@ -65,36 +67,44 @@ class ViewController: UIViewController {
                 
             }
         }
-        
+       
+      //update view
       gridView.setNeedsDisplay()
-        
-        
-        
       
- 
- 
- 
-        /*
-         //put array named: after into the grid
-         for y in 0..<gridView.cols{
+        
+        
+        //put everything from after to before, as after needs to become the new before 
+        //could have done this in the above for loops, 
+        //but I feel this will make it easier for me to read my code in the future
+        
+        for y in 0..<gridView.cols{
             for x in 0..<gridView.rows{
-         
+                
                 //cast into to GCF
                 let xFromIntToCGF = CGFloat(x)
                 let yFromIntToCGF = CGFloat(y)
-         
-                if step(before)[y][x] == true {
-         
-                    gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                
+                
+                if after[y][x] == true {
+                    
+                    //update before so it become the new after
+                    gridView.before[y][x] = true
+                    
+                    
                 }
-         
+                else if after[y][x] == false {
+                    
+                    
+                    //update before so it become the new after
+                    gridView.before[y][x] = false
+                    
+                    
+                }
+                
             }
-         }
+        }
         
-        */
-         
- 
-        
+    
 
     }//closes runButton
     

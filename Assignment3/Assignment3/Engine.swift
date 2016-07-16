@@ -96,7 +96,7 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         
         //check bottom right
         if checkCoordinates( x+1, y: y+1){
-            
+            aliveCount+=1
         }
         
         //check bottom

@@ -51,7 +51,6 @@ class GridView: UIView {
     var numOfLivingCellsInAfter: Int = 0
     
     var before = Array(count:20, repeatedValue: Array(count:20, repeatedValue:false))
-    var afterStep = Array(count:20, repeatedValue: Array(count:20, repeatedValue:false))
     
     
     override func drawRect(rect: CGRect)
@@ -84,7 +83,6 @@ class GridView: UIView {
             }
             
         }
-        
         
         
         
