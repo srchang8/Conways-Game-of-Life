@@ -22,15 +22,8 @@ class ViewController: UIViewController {
         
         //create after array variable
         let after = step(gridView.before)
-        //var grid = gridView.grid
          
-       
-        
-        //gridView.fillCell(10, yCoord: 10)
-        
-        //var gridArray = gridView.grid
-        //var gridArrayy = step(gridView.before)
-        
+
         
         //put array named: after into the grid
         for y in 0..<gridView.cols{
@@ -110,13 +103,6 @@ class ViewController: UIViewController {
     
     
     
- 
-    
-    
-    
-  
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -133,16 +119,4 @@ class ViewController: UIViewController {
 
 
 
-
-
-//gridView set needs display gridView.setNeedsDisplay
-// grid should go into step in function
-
-//get grid from gribire
-//run step from engine
-//use button to update array
-
-//gridView.grid = newGrid
-
-//gridViewsetNeedsDisplay() will draw it again
 

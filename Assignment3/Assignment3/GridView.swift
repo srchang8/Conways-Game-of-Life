@@ -310,6 +310,7 @@ class GridView: UIView {
         
         //create circle context with at position (xCoord, yCoord) with size 10x10
         let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
+
         
         
        //set color to empty cell dark gray
