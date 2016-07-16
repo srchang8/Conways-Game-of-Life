@@ -98,7 +98,7 @@ class Problem2ViewController: UIViewController {
             
             //check bottom right
             if checkCoordinates( x+1, y: y+1){
-                
+                aliveCount+=1
             }
             
             //check bottom
@@ -180,6 +180,8 @@ class Problem2ViewController: UIViewController {
         textViewProblem2.text="Run button pressed \nLiving cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
         
     }
+    
+    
     
     
     

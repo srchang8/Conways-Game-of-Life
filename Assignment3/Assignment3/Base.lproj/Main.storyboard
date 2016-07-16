@@ -17,9 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFd-8p-JDN">
-                                <rect key="frame" x="153" y="319" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9os-Wx-emq">
+                                <rect key="frame" x="132" y="322" width="30" height="30"/>
                                 <state key="normal" title="Run"/>
+                                <connections>
+                                    <action selector="runButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="alg-cl-i0i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-KK-J3l">
+                                <rect key="frame" x="310" y="339" width="39" height="30"/>
+                                <state key="normal" title="Erase"/>
+                                <connections>
+                                    <action selector="eraseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rpq-vf-RXK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -50,6 +60,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="gridView" destination="8bC-Xf-vdC" id="y1P-I2-lFQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

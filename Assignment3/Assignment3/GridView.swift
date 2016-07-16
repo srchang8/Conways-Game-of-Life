@@ -44,26 +44,21 @@ class GridView: UIView {
     let xStart: CGFloat = 50//start position for x coordinate
     let yStart: CGFloat = 50// start position for y coordinate
     
+    //MARK: Create before array Problem 6
+    let NumColumns: Int = 20
+    let NumRows: Int = 20
+    var numOfLivingCellsInBefore: Int = 0
+    var numOfLivingCellsInAfter: Int = 0
     
-    
-    //MARK: Create before array
-    
-    
+    var before = Array(count:20, repeatedValue: Array(count:20, repeatedValue:false))
+    var afterStep = Array(count:20, repeatedValue: Array(count:20, repeatedValue:false))
     
     
     override func drawRect(rect: CGRect)
     {
         
-        //MARK: Create before array Problem 6
-        let NumColumns: Int = 20
-        let NumRows: Int = 20
-        var numOfLivingCellsInBefore: Int = 0
-        var numOfLivingCellsInAfter: Int = 0
         
-        var before = Array(count:NumColumns, repeatedValue: Array(count:NumRows, repeatedValue:false))
-        var afterStep = Array(count:NumColumns, repeatedValue: Array(count:NumRows, repeatedValue:false))
-        
-        
+        //initialize before array with random bools
         for y in 0..<NumColumns{//iterate 0-9
             for x in 0..<NumRows{//iterate 0-9
                 
@@ -72,11 +67,26 @@ class GridView: UIView {
                     before[y][x] = true
                     numOfLivingCellsInBefore+=1
                     
+                    //update enum grid
+                    grid[y][x] = .Living
+                    
+                    
                 }
-                //print(before[y][x]) //print entire array to see if random variables generated correctly
+                else{
+                    //update enum grid
+                    grid[y][x] = .Empty
+                    
+                    //Fill in the empty cells
+                    let xFromIntToCGF = CGFloat(x)
+                    let yFromIntToCGF = CGFloat(y)
+                    emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                }
             }
             
         }
+        
+        
+        
         
         
         //MARK: draw cells
@@ -105,7 +115,6 @@ class GridView: UIView {
             
             
         }
-        //print("number of rows \(countRows)")
         
         
         
@@ -127,26 +136,30 @@ class GridView: UIView {
             
             
         }
-        //print("number of columns \(countRows)")
         
         
-        
+        /*
         //MARK: Draw Circles
         
-        /* this is hw3 part4
+        
+         //this is hw3 part4
          for y in 0..<cols{
-         for x in 0..<rows{
+            for x in 0..<rows{
          
-         //cast into to GCF
-         let xFromIntToCGF = CGFloat(x)
-         let yFromIntToCGF = CGFloat(y)
+                //cast into to GCF
+                let xFromIntToCGF = CGFloat(x)
+                let yFromIntToCGF = CGFloat(y)
          
-         fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
          
          
+            }
          }
-         }
-         */
+        */
+       
+      
+        
+        
         
         //put array named before into the grid
         for y in 0..<cols{
@@ -164,13 +177,7 @@ class GridView: UIView {
             }
         }
         
-        
-        
-        
-        
-        
-        
-        
+       
         
         /*
          
@@ -194,35 +201,63 @@ class GridView: UIView {
         
         
         
-        /*
-         //Check each cell in before and send result to after
-         for y in 0..<NumColumns{//iterate 0-9
-         for x in 0..<NumRows{//iterate 0-9
-         
-         if checkNeighbors( x, y: y) == true{
-         afterStep[y][x] = true
-         numOfLivingCellsInAfter+=1
-         } else if checkNeighbors( x, y: y) == false{
-         afterStep[y][x] = false
-         }
-         
-         }
-         
-         }
-         */
         
     }//override rect function closing bracket
     
     
     
+    /*
+    
+    func ratingButtonTapped(button: UIButton) {
+        print("Button pressed 👍")
+        
+        //put array named: after into the grid
+        for y in 0..<cols{
+            for x in 0..<rows{
+                
+                //cast into to GCF
+                let xFromIntToCGF = CGFloat(x)
+                let yFromIntToCGF = CGFloat(y)
+                
+                if step(before)[y][x] == true {
+                    
+                    fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                }
+                
+            }
+        }
+        
+     /*
+     
+     //create button
+     let button = UIButton(frame: CGRect(x: 250, y:250, width: 44, height: 44))
+     button.backgroundColor = UIColor.redColor()
+     button.addTarget(self, action: #selector(GridView.ratingButtonTapped(_:)), forControlEvents: .TouchDown)
+     addSubview(button)
+     */
+
+     
+     
+     
+        */
+        
+    
+    
+    
     
     //MARK: functions
+    
     //takes coordinates and fills the the respective cell
     func fillCell(var xCoord: CGFloat, var yCoord: CGFloat){
         
+        var xCoordIn = xCoord
+        var yCoordIn = yCoord
+        
+ 
+ 
         //cast CGFloat to int
-        var xCoordInt = Int(xCoord)
-        var yCoordInt = Int(yCoord)
+        var xCoordInt = Int(xCoordIn)
+        var yCoordInt = Int(yCoordIn)
         
         
         //grid starts at (50, 50) or (xCoord, yCoord)
@@ -234,21 +269,65 @@ class GridView: UIView {
         let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
         
         
+        //sets the colors by checking grid
         if toggle(grid[xCoordInt][yCoordInt]) == .Living {
             //living color is green
             livingColor.setFill()
+            
         }
         
         if toggle(grid[xCoordInt][yCoordInt]) == .Empty {
             //empty color is dark gray
             emptyColor.setFill()
+            
         }
+        
+        
+        
+        
+        //fill the circle
+        circlePath.fill()
+
+        
+    }
+    
+    
+    
+    func emptyCell(var xCoord: CGFloat, var yCoord: CGFloat){
+        
+        var xCoordIn = xCoord
+        var yCoordIn = yCoord
+        
+        
+        
+        //cast CGFloat to int
+        var xCoordInt = Int(xCoordIn)
+        var yCoordInt = Int(yCoordIn)
+        
+        
+        //grid starts at (50, 50) or (xCoord, yCoord)
+        xCoord = xCoord*10 + xStart
+        yCoord = yCoord*10 + yStart
+        
+        
+        //create circle context with at position (xCoord, yCoord) with size 10x10
+        let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
+        
+        
+       //set color to empty cell dark gray
+        emptyColor.setFill()
+            
+        
+        
+        
+        
         
         //fill the circle
         circlePath.fill()
         
+
+        
     }
-    
     
     
     

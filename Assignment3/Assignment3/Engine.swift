@@ -67,7 +67,7 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
     
     
     
-    //check the neighbors around the cell to see if alive
+    //check the neighbors around the cell to see if alive, returns either alive or dead
     func checkNeighbors(x: Int, y: Int) -> Bool {
         
         
@@ -116,12 +116,14 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
         
         //check to see if current cell is dead or alive first
         switch twoDimArrOfBools[x][y] {
-            
+        
+            //if it is alive and it has 2 or 3 alive neighbors
         case true:
             if aliveCount == 2 || aliveCount == 3 {
                 alive = true
             }
-            
+           
+            //if it is dead and has 3 alive neighbors
         case false:
             if aliveCount == 3{
                 alive = true
@@ -146,6 +148,8 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
             if checkNeighbors( x, y: y) == true{
                 after[y][x] = true
                 numOfLivingCellsInAfter+=1
+                
+                
             } else if checkNeighbors( x, y: y) == false{
                 after[y][x] = false
             }

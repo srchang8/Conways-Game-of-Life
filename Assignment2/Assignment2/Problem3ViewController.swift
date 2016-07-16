@@ -23,7 +23,10 @@ class Problem3ViewController: UIViewController {
         let NumRows: Int = 10
         var numOfLivingCellsInBefore: Int = 0
         var numOfLivingCellsInAfter: Int = 0
+        
+        //create before and after arrays
         var before = Array(count:NumColumns, repeatedValue: Array(count:NumRows, repeatedValue:false))
+        
         var afterStep = Array(count:NumColumns, repeatedValue: Array(count:NumRows, repeatedValue:false))
         
         //set a random true or false value for each cell in the before array
@@ -42,7 +45,7 @@ class Problem3ViewController: UIViewController {
         }
 
         
-        
+        //step checks neighbors and returns a 2D array of bools
         for x in 0..<step(before).count{//iterate 0-size of input array
             for y in 0..<afterStep[x].count{//iterate 0-9
                 
@@ -54,7 +57,7 @@ class Problem3ViewController: UIViewController {
             
         }
 
-        
+       //send results to the text box
        textViewProblem3.text="Run button pressed \nLiving cells in Before: \(numOfLivingCellsInBefore) \nLiving cells in After: \(numOfLivingCellsInAfter)"
         
         
