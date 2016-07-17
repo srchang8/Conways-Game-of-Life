@@ -15,6 +15,138 @@ class ViewController: UIViewController {
     //allows you to use stuff in GridView
     @IBOutlet weak var gridView: GridView!
     
+    @IBOutlet weak var touchGrid: GridView!
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+       
+        let after = step(gridView.before)
+        
+      
+        
+        if  let touch = touches.first {
+            
+            
+            //let position :CGPoint = touch.locationInView(view)
+            
+            let position :CGPoint = touch.locationInView(view)
+            
+            var xPosition = position.x
+            var yPosition = position.y
+            
+            var xCGFloat = position.x
+            var yCGFloat = position.y
+            
+            print("CGFloat coordinates before \(xCGFloat) \(yCGFloat)")
+            xCGFloat = (floor((xCGFloat - 50)/10))
+            yCGFloat = (floor((yCGFloat - 50)/10))
+            //xFloat = (floor((xFloat - 50 )/10))
+            
+            
+            /*
+            //cast CGFloat to string and get first 2
+            var xString = String(xPosition)
+            var yString = String(yPosition)
+            
+            let rangeOfxString = Range(start: xString.startIndex, end: xString.startIndex.advancedBy(2))
+            let xfirstTwoDigits = xString[rangeOfxString]
+       
+          
+            let rangeOfyString = Range(start: yString.startIndex, end: yString.startIndex.advancedBy(2))
+            let yfirstTwoDigits = yString[rangeOfyString]
+            
+            //cast back to int
+            var xInt = Int(xfirstTwoDigits)
+            var yInt = Int(yfirstTwoDigits)
+            
+            
+            xPosition = (xPosition - 50)/10
+            yPosition = (yPosition - 50)/10
+            */
+            
+            print("CGFloat coordinates after \(xCGFloat) \(yCGFloat)")
+            gridView.fillCell(xCGFloat, yCoord: yCGFloat)
+            
+            gridView.setNeedsDisplay()
+            
+          
+
+            /*
+            if xInt < 20 && yInt < 20 {
+                
+                if gridView.before[yInt][xInt] == false {
+                
+                    //cast from int to CGF for fill and empty cell function
+                
+                
+                    let xCGFloat = CGFloat(xInt)
+                    let yCGFloat = CGFloat(yInt)
+ 
+                
+                    gridView.fillCell(xCGFloat, yCoord: yCGFloat)
+                    print("@@@@@@@ Fill")
+                    
+                    //update grid
+                    gridView.setNeedsDisplay()
+                
+                }
+                
+                
+                if gridView.before[yInt][xInt] == true {
+                    
+                    let xCGFloat = CGFloat(xInt)
+                    let yCGFloat = CGFloat(yInt)
+                    
+                    
+                    gridView.emptyCell(xCGFloat, yCoord: yCGFloat)
+                    print("@@@@@@@ empty")
+            
+                    
+                    //update grid
+                    gridView.setNeedsDisplay()
+                    
+                }
+            
+            
+            }
+            */
+            
+            
+            
+            /*
+            
+            //create circle context with at position (xCoord, yCoord) with size 10x10
+            let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCGFloat, yCGFloat, 10, 10))
+            
+        
+            
+            
+            
+            gridView.livingColor.setFill()
+            
+            //fill the circle
+            circlePath.fill()
+            
+            */
+            
+            
+            //if before[y][x] is empty
+                //fill it
+                //mark grid as living
+                //update before aray position to true
+            // if it is alive
+                // empty it
+                //mark grid as empty
+                //update before array position to false
+            
+        }
+        
+ 
+        
+        
+    }
+ 
+    
+    
     
     
      
@@ -25,7 +157,7 @@ class ViewController: UIViewController {
          
 
         
-        //put array named: after into the grid
+        //put array named: after into the grid 20x20
         for y in 0..<gridView.cols{
             for x in 0..<gridView.rows{
                 

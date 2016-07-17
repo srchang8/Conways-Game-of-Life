@@ -24,13 +24,6 @@
                                     <action selector="runButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="alg-cl-i0i"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-KK-J3l">
-                                <rect key="frame" x="310" y="339" width="39" height="30"/>
-                                <state key="normal" title="Erase"/>
-                                <connections>
-                                    <action selector="eraseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rpq-vf-RXK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
@@ -62,6 +55,7 @@
                     </view>
                     <connections>
                         <outlet property="gridView" destination="8bC-Xf-vdC" id="y1P-I2-lFQ"/>
+                        <outlet property="touchGrid" destination="8bC-Xf-vdC" id="GwG-jp-JCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

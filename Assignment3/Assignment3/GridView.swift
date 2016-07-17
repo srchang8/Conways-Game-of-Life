@@ -57,7 +57,7 @@ class GridView: UIView {
     {
         
         
-        //initialize before array with random bools
+        //initialize before array with random bools and update enum grid
         for y in 0..<NumColumns{//iterate 0-9
             for x in 0..<NumRows{//iterate 0-9
                 
@@ -106,8 +106,8 @@ class GridView: UIView {
             
             if countRows > rows
             {
-                print("For Loop cannot run more than number of rows designated")
-                print("number of rows before break \(countRows)")
+                //print("For Loop cannot run more than number of rows designated")
+                //print("number of rows before break \(countRows)")
                 break
             }
             
@@ -127,8 +127,8 @@ class GridView: UIView {
             
             if countColumns > cols
             {
-                print("For Loop cannot run more than number of columns designated")
-                print("number of columns before break \(countColumns)")
+                //print("For Loop cannot run more than number of columns designated")
+                //print("number of columns before break \(countColumns)")
                 break
             }
             
@@ -136,24 +136,6 @@ class GridView: UIView {
         }
         
         
-        /*
-        //MARK: Draw Circles
-        
-        
-         //this is hw3 part4
-         for y in 0..<cols{
-            for x in 0..<rows{
-         
-                //cast into to GCF
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-         
-                fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-         
-         
-            }
-         }
-        */
        
       
         
@@ -177,67 +159,13 @@ class GridView: UIView {
         
        
         
-        /*
-         
-         //put array named: after into the grid
-         for y in 0..<cols{
-         for x in 0..<rows{
-         
-         //cast into to GCF
-         let xFromIntToCGF = CGFloat(x)
-         let yFromIntToCGF = CGFloat(y)
-         
-         if step(before)[y][x] == true {
-         
-         fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-         }
-         
-         }
-         }
-         
-         */
+        
         
         
         
         
     }//override rect function closing bracket
     
-    
-    
-    /*
-    
-    func ratingButtonTapped(button: UIButton) {
-        print("Button pressed 👍")
-        
-        //put array named: after into the grid
-        for y in 0..<cols{
-            for x in 0..<rows{
-                
-                //cast into to GCF
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-                
-                if step(before)[y][x] == true {
-                    
-                    fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                }
-                
-            }
-        }
-        
-     /*
-     
-     //create button
-     let button = UIButton(frame: CGRect(x: 250, y:250, width: 44, height: 44))
-     button.backgroundColor = UIColor.redColor()
-     button.addTarget(self, action: #selector(GridView.ratingButtonTapped(_:)), forControlEvents: .TouchDown)
-     addSubview(button)
-     */
-
-     
-     
-     
-        */
         
     
     
@@ -245,7 +173,7 @@ class GridView: UIView {
     
     //MARK: functions
     
-    //takes coordinates and fills the the respective cell
+    //takes in CGFloat coordinates and fills the the respective cell
     func fillCell(var xCoord: CGFloat, var yCoord: CGFloat){
         
         var xCoordIn = xCoord
@@ -267,21 +195,30 @@ class GridView: UIView {
         let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
         
         
+        /*
         //sets the colors by checking grid
-        if toggle(grid[xCoordInt][yCoordInt]) == .Living {
+        if grid[xCoordInt][yCoordInt] == .Living {
             //living color is green
             livingColor.setFill()
             
         }
         
-        if toggle(grid[xCoordInt][yCoordInt]) == .Empty {
+        if grid[xCoordInt][yCoordInt] == .Empty {
             //empty color is dark gray
             emptyColor.setFill()
             
         }
+        */
         
+        print("xCoordInt and yCoordInt inside Fill \(xCoordInt) \(yCoordInt)")
         
+        if before[xCoordInt][yCoordInt] == true{
+            livingColor.setFill()
+        }
         
+        if before[xCoordInt][yCoordInt] == false{
+            emptyColor.setFill()
+        }
         
         //fill the circle
         circlePath.fill()
