@@ -9,27 +9,47 @@
 import UIKit
 
 
+
+
+
 @IBDesignable//Let interface builder know that it should render the view directly in the canvas. Allows seeing how your custom views will appear without building and running your app after each change
 class GridView: UIView {
     
+    //everytime rows or cols changes grid array must reinitialize to all empty
+   //@IBInspectable rows
     
     @IBInspectable var rows: Int = 20 {
         didSet {
-            print("rows has changed, grid array will all be set to empty")
+            //reinstantiate grid
+            
+            for y in 0..<rows{
+                for x in 0..<cols{
+                    grid[y][x] = CellState.Empty
+                }
+                
+            }
+            
         }
     }
     
     @IBInspectable var cols: Int = 20 {
         didSet {
-            print("cols has changed, grid array will all be set to empty")
+            //reinstantiate grid
+            for y in 0..<rows{
+                for x in 0..<cols{
+                    grid[y][x] = CellState.Empty
+                }
+                
+            }
         }
     }
+    
+    
     
     @IBInspectable var livingColor: UIColor = UIColor()
     @IBInspectable var emptyColor: UIColor = UIColor()
     @IBInspectable var bornColor: UIColor = UIColor()
     @IBInspectable var diedColor: UIColor = UIColor()
-    
     @IBInspectable var gridColor: CGColor!
     
     @IBInspectable var gridWidth: CGFloat = 0
@@ -37,8 +57,8 @@ class GridView: UIView {
     
     
     //a 2D array of CellState values called grid which reinitialize to all .Empty values every time rows or cols changes using didSet keyword on the rows and cols values
+    var grid = Array(count:20 , repeatedValue: Array(count:20, repeatedValue: CellState.Empty))
     
-    var grid = Array(count:20, repeatedValue: Array(count:20, repeatedValue: CellState.Empty))
     
     
     let xStart: CGFloat = 50//start position for x coordinate
@@ -287,6 +307,7 @@ class GridView: UIView {
         
         //Actually draw the path
         CGContextStrokePath(rowContext)
+        
         
     }
     

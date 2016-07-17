@@ -37,8 +37,8 @@ class ViewController: UIViewController {
             var yCGFloat = position.y
             
             print("CGFloat coordinates before \(xCGFloat) \(yCGFloat)")
-            xCGFloat = (floor((xCGFloat - 50)/10))
-            yCGFloat = (floor((yCGFloat - 50)/10))
+            xCGFloat = (floor((xCGFloat - gridView.xStart)/10))
+            yCGFloat = (floor((yCGFloat - gridView.yStart)/10))
             //xFloat = (floor((xFloat - 50 )/10))
             
             

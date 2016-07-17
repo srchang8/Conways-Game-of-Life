@@ -35,16 +35,9 @@ enum CellState : String {
     
     func allValues() -> Array<CellState>{
         
-        var arrAllValues = Array(count:4, repeatedValue: CellState.Empty)
-        
-        arrAllValues[0] = CellState.Living
-        arrAllValues[1] = CellState.Empty
-        arrAllValues[2] = CellState.Born
-        arrAllValues[3] = CellState.Died
-        
-        return arrAllValues
-        
+       
         //returns an array of all available values for the enum
+        return [.Empty,.Born,.Living,.Died]
         
     }
     
