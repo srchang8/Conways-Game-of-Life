@@ -16,7 +16,7 @@ import UIKit
 class GridView: UIView {
     
     //everytime rows or cols changes grid array must reinitialize to all empty
-   //@IBInspectable rows
+    //@IBInspectable rows
     
     @IBInspectable var rows: Int = 20 {
         didSet {
@@ -65,8 +65,6 @@ class GridView: UIView {
     let yStart: CGFloat = 50// start position for y coordinate
     
     //MARK: Create before array Problem 6
-    let NumColumns: Int = 20
-    let NumRows: Int = 20
     var numOfLivingCellsInBefore: Int = 0
     var numOfLivingCellsInAfter: Int = 0
     
@@ -76,33 +74,53 @@ class GridView: UIView {
     override func drawRect(rect: CGRect)
     {
         
+        /* moved to viewController
+         //initialize before array with random bools and update enum grid
+         for y in 0..<cols{//iterate 0-9
+         for x in 0..<rows{//iterate 0-9
+         
+         // if arc4random_uniform generates 1, then it will set cell to true
+         if arc4random_uniform(3) == 1 {
+         before[y][x] = true
+         numOfLivingCellsInBefore+=1
+         
+         //update enum grid
+         grid[y][x] = .Living
+         
+         
+         }
+         else{
+         //update enum grid
+         grid[y][x] = .Empty
+         
+         //Fill in the empty cells
+         let xFromIntToCGF = CGFloat(x)
+         let yFromIntToCGF = CGFloat(y)
+         emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+         }
+         }
+         
+         }
+         */
         
-        //initialize before array with random bools and update enum grid
-        for y in 0..<NumColumns{//iterate 0-9
-            for x in 0..<NumRows{//iterate 0-9
-                
-                // if arc4random_uniform generates 1, then it will set cell to true
-                if arc4random_uniform(3) == 1 {
-                    before[y][x] = true
-                    numOfLivingCellsInBefore+=1
-                    
-                    //update enum grid
-                    grid[y][x] = .Living
-                    
-                    
-                }
-                else{
-                    //update enum grid
-                    grid[y][x] = .Empty
-                    
-                    //Fill in the empty cells
-                    let xFromIntToCGF = CGFloat(x)
-                    let yFromIntToCGF = CGFloat(y)
-                    emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                }
-            }
-            
-        }
+        /* moved to viewController
+         //put array named before into the grid
+         for y in 0..<cols{
+         for x in 0..<rows{
+         
+         //cast into to GCF
+         let xFromIntToCGF = CGFloat(x)
+         let yFromIntToCGF = CGFloat(y)
+         
+         if before[y][x] == true {
+         
+         //print("xFromIntToCGF\(xFromIntToCGF) yFromIntToCGF\(yFromIntToCGF)")
+         fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+         }
+         
+         }
+         }//ends put array named before into grid
+         */
         
         
         
@@ -155,13 +173,37 @@ class GridView: UIView {
             
         }
         
+        /*
+        //initialize before array with random bools and update enum grid
+        for y in 0..<cols{//iterate 0-9
+            for x in 0..<rows{//iterate 0-9
+                
+                // if arc4random_uniform generates 1, then it will set cell to true
+                if arc4random_uniform(3) == 1 {
+                    before[y][x] = true
+                    numOfLivingCellsInBefore+=1
+                    
+                    //update enum grid
+                    grid[y][x] = .Living
+                    
+                    
+                }
+                else{
+                    //update enum grid
+                    grid[y][x] = .Empty
+                    
+                    //Fill in the empty cells
+                    let xFromIntToCGF = CGFloat(x)
+                    let yFromIntToCGF = CGFloat(y)
+                    emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                }
+            }
+            
+        }
         
-       
-      
-        
-        
-        
-        //put array named before into the grid
+        */
+ 
+        //draw before array into the grid
         for y in 0..<cols{
             for x in 0..<rows{
                 
@@ -173,12 +215,12 @@ class GridView: UIView {
                     
                     fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
                 }
+                else if before[y][x] == false {
+                    emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                }
                 
             }
         }
-        
-       
-        
         
         
         
@@ -186,7 +228,7 @@ class GridView: UIView {
         
     }//override rect function closing bracket
     
-        
+    
     
     
     
@@ -199,8 +241,8 @@ class GridView: UIView {
         var xCoordIn = xCoord
         var yCoordIn = yCoord
         
- 
- 
+        
+        
         //cast CGFloat to int
         var xCoordInt = Int(xCoordIn)
         var yCoordInt = Int(yCoordIn)
@@ -215,22 +257,8 @@ class GridView: UIView {
         let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
         
         
-        /*
-        //sets the colors by checking grid
-        if grid[xCoordInt][yCoordInt] == .Living {
-            //living color is green
-            livingColor.setFill()
-            
-        }
         
-        if grid[xCoordInt][yCoordInt] == .Empty {
-            //empty color is dark gray
-            emptyColor.setFill()
-            
-        }
-        */
-        
-        print("xCoordInt and yCoordInt inside Fill \(xCoordInt) \(yCoordInt)")
+        //print("xCoordInt and yCoordInt inside Fill \(xCoordInt) \(yCoordInt)")
         
         if before[xCoordInt][yCoordInt] == true{
             livingColor.setFill()
@@ -242,7 +270,8 @@ class GridView: UIView {
         
         //fill the circle
         circlePath.fill()
-
+        //gridView.setNeedsDisplay()
+        
         
     }
     
@@ -267,21 +296,18 @@ class GridView: UIView {
         
         //create circle context with at position (xCoord, yCoord) with size 10x10
         let circlePath = UIBezierPath(ovalInRect: CGRectMake(xCoord, yCoord, 10, 10))
-
         
         
-       //set color to empty cell dark gray
+        
+        //set color to empty cell dark gray
         emptyColor.setFill()
-            
-        
-        
         
         
         
         //fill the circle
         circlePath.fill()
         
-
+        
         
     }
     

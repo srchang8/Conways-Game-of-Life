@@ -24,6 +24,13 @@
                                     <action selector="runButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="alg-cl-i0i"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6K-L7-9uu">
+                                <rect key="frame" x="214" y="322" width="61" height="30"/>
+                                <state key="normal" title="Populate"/>
+                                <connections>
+                                    <action selector="populateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HZg-Vc-kGZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>

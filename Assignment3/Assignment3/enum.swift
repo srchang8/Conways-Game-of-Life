@@ -46,14 +46,21 @@ enum CellState : String {
 
 func toggle( value: CellState) -> CellState{
     
-    var cellValue: CellState!//indicate that it could be nil
+    var cellValue : CellState = value
+    
+    
+     print("initial toggle Cell value \(cellValue)")
     
     if value == .Empty || value == .Died{
         cellValue = .Living
+        
+        print("return living \(cellValue)")
+       
     }
     
     if value == .Living || value == .Born{
         cellValue = .Empty
+        print("return Empty \(cellValue)")
     }
     
     return cellValue
