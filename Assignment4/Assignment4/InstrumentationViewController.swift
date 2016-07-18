@@ -58,6 +58,7 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
             return PersistenceService.sharedInstance.refreshRate
         }
         set {
+            StandardEngine.sharedInstance.scheduleTimer()
             PersistenceService.sharedInstance.refreshRate = newValue
             self.refreshUI()
         }
@@ -67,6 +68,7 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
             return PersistenceService.sharedInstance.timedRefresh
         }
         set {
+            StandardEngine.sharedInstance.scheduleTimer()
             PersistenceService.sharedInstance.timedRefresh = newValue
             self.refreshUI()
         }
@@ -92,6 +94,9 @@ class InstrumentationViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func numberOfColumnsStepperValueChanged(sender: UIStepper) {
         self.numberOfCollumns = Int(sender.value)
+    }
+    @IBAction func timedRefreshSwitchValueChanged(sender: UISwitch) {
+        self.timedRefresh = sender.on
     }
     
     // MARK: - UITextFieldDelegate

@@ -26,7 +26,10 @@ class SimulationViewController: UIViewController, EngineDelegate {
         
         let rows = PersistenceService.sharedInstance.numberOfRows
         let cols = PersistenceService.sharedInstance.numberOfCollumns
-        StandardEngine.sharedInstance.grid = Grid(rows: rows, cols: cols)
+        let grid = StandardEngine.sharedInstance.grid
+        if grid.cols != cols && grid.rows != rows {
+            StandardEngine.sharedInstance.grid = Grid(rows: rows, cols: cols)
+        }
     }
     
     // MARK: - EngineDelegate
@@ -38,13 +41,9 @@ class SimulationViewController: UIViewController, EngineDelegate {
     }
     
     
-    
-    
-    
+    //couldn't get this working in time.
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        StandardEngine.sharedInstance.grid = self.gridView.before
-        StandardEngine.sharedInstance.step()
+//        StandardEngine.sharedInstance.step()
         
         if  let touch = touches.first {
             
@@ -70,14 +69,9 @@ class SimulationViewController: UIViewController, EngineDelegate {
             
             //if gridView.before[yInt][xInt] == false{
             
-            gridView.before[yInt, xInt] = .Living
+            //gridView.grid[yInt, xInt] = .Living
             //gridView.grid[yInt][xInt] = toggle(gridView.grid[yInt][xInt])
-            
-            print("after toggle it returns \(gridView.grid[yInt, xInt])")
-            
-            print("draw circle on \(yInt) \(xInt)")
-            print("gridView before values true or false \(gridView.before[yInt, xInt])")
-            gridView.setNeedsDisplay()
+            //gridView.setNeedsDisplay()
             //}
             
             //gridView.fillCell(xCGFloat, yCoord: yCGFloat)
@@ -93,157 +87,45 @@ class SimulationViewController: UIViewController, EngineDelegate {
     
     
     
-    
-    //iterate button
     @IBAction func runButton(sender: UIButton) {
-        
-        //create after array variable
-        StandardEngine.sharedInstance.grid = self.gridView.before
-        let after = StandardEngine.sharedInstance.step()
-        
-        
-        
-        //put array named: after into the grid 20x20
-        for y in 0..<gridView.grid.cols{
-            for x in 0..<gridView.grid.rows{
-                
-                //cast into to GCF
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-                
-                
-                switch after[y, y] {
-                case .Living, .Born:
-                    
-                    //draw circle in the grid
-                    gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                    
-                    //update enum grid
-                    gridView.grid[y, x] = .Living
-                    
-                //update before so it become the new after
-                case .Died, .Empty:
-                    
-                    //update enum grid
-                    gridView.grid[y, x] = .Died
-                    
-                    //empty the cell
-                    gridView.emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                }
-                
-            }
-        }
-        
-        //update view
-        gridView.setNeedsDisplay()
-        
-        
-        
-        //put everything from after to before, as after needs to become the new before
-        //could have done this in the above for loops,
-        //but I feel this will make it easier for me to read my code in the future
-        
-        for y in 0..<gridView.grid.cols{
-            for x in 0..<gridView.grid.rows{
-                
-                //cast into to GCF
-                //let xFromIntToCGF = CGFloat(x)
-                //let yFromIntToCGF = CGFloat(y)
-                
-                
-                switch after[y, y] {
-                case .Living, .Born:
-                    
-                    //update before so it become the new after
-                    gridView.before[y, x] = .Living
-                    
-                //update before so it become the new after
-                case .Died, .Empty:
-                    
-                    //update before so it become the new after
-                    gridView.before[y, x] = .Died
-                }
-                
-            }
-        }
-        
-        
-        
-    }//closes runButton
-    
-    
+        StandardEngine.sharedInstance.step()
+    }
     
     @IBAction func populateButton(sender: UIButton) {
         
+        let grid = StandardEngine.sharedInstance.grid
         
         //clear existing if any grid
-        for y in 0..<gridView.grid.cols{//iterate 0-9
-            for x in 0..<gridView.grid.rows{//iterate 0-9
-                
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-                gridView.emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                gridView.grid[y, x] = .Empty
-                gridView.before[y, x] = .Empty
-                
+        for y in 0..<grid.cols{//iterate 0-9
+            for x in 0..<grid.rows{//iterate 0-9
+                grid[y, x] = .Empty
             }
         }
         
         
         
         //initialize before array with random bools and update enum grid
-        for y in 0..<gridView.grid.cols{//iterate 0-9
-            for x in 0..<gridView.grid.rows{//iterate 0-9
+        for y in 0..<grid.cols{//iterate 0-9
+            for x in 0..<grid.rows{//iterate 0-9
                 
                 // if arc4random_uniform generates 1, then it will set cell to true
                 if arc4random_uniform(3) == 1 {
-                    
-                    gridView.before[y, x] = .Living
                     gridView.numOfLivingCellsInBefore+=1
                     
-                    //Fill alive cells
-                    let xFromIntToCGF = CGFloat(x)
-                    let yFromIntToCGF = CGFloat(y)
-                    gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                    
                     //update enum grid
-                    gridView.grid[y, x] = .Living
+                    grid[y, x] = .Living
                     
                     
                 } else {
                     //update enum grid
-                    gridView.grid[y, x] = .Empty
-                    
-                    //Fill in the empty cells
-//                    let xFromIntToCGF = CGFloat(x)
-//                    let yFromIntToCGF = CGFloat(y)
-                    //gridView.emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                    grid[y, x] = .Empty
                 }
             }
             
         }//ends initialize before array
         
         
-        /*
-         // Draw put array named before into the grid
-         for y in 0..<gridView.cols{
-         for x in 0..<gridView.rows{
-         
-         //cast into to GCF
-         let xFromIntToCGF = CGFloat(x)
-         let yFromIntToCGF = CGFloat(y)
-         
-         if gridView.before[y][x] == true {
-         
-         //print("xFromIntToCGF\(xFromIntToCGF) yFromIntToCGF\(yFromIntToCGF)")
-         gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-         }
-         
-         }
-         }//ends put array named before into grid
-         */
-        gridView.setNeedsDisplay()
-        
+        StandardEngine.sharedInstance.grid = grid
         
         
     }//ends populateButton
