@@ -19,10 +19,6 @@ class ViewController: UIViewController {
     
  
     
-    
-    
-    
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         var after = step(gridView.before)
@@ -60,7 +56,7 @@ class ViewController: UIViewController {
             //if gridView.before[yInt][xInt] == false{
                 
                 gridView.before[yInt][xInt] = true
-                toggle(gridView.grid[yInt][xInt])
+                //gridView.grid[yInt][xInt] = toggle(gridView.grid[yInt][xInt])
             
             print("after toggle it returns \(gridView.grid[yInt][xInt])")
             
@@ -71,24 +67,6 @@ class ViewController: UIViewController {
             
             //gridView.fillCell(xCGFloat, yCoord: yCGFloat)
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            //if before[y][x] is empty
-            //fill it
-            //mark grid as living
-            //update before aray position to true
-            // if it is alive
-            // empty it
-            //mark grid as empty
-            //update before array position to false
             
         }
         
@@ -101,7 +79,7 @@ class ViewController: UIViewController {
     
     
     
-    
+    //iterate button
     @IBAction func runButton(sender: UIButton) {
         
         //create after array variable
@@ -122,6 +100,8 @@ class ViewController: UIViewController {
                     
                     //draw circle in the grid
                     gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                    
+                    print("fillCell x: \(xFromIntToCGF) y: \(yFromIntToCGF) ")
                     
                     //update enum grid
                     gridView.grid[y][x] = .Living
@@ -149,6 +129,8 @@ class ViewController: UIViewController {
         gridView.setNeedsDisplay()
         
         
+        
+        /*
         
         //put everything from after to before, as after needs to become the new before
         //could have done this in the above for loops,
@@ -181,15 +163,29 @@ class ViewController: UIViewController {
             }
         }
         
-        
+        */
         
     }//closes runButton
     
     
-    
+    //Start button
     @IBAction func populateButton(sender: UIButton) {
         
-        print("hi")
+     
+        //clear existing if any grid
+        for y in 0..<gridView.cols{//iterate 0-9
+            for x in 0..<gridView.rows{//iterate 0-9
+                
+                let xFromIntToCGF = CGFloat(x)
+                let yFromIntToCGF = CGFloat(y)
+                gridView.emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                gridView.grid[y][x] = .Empty
+                gridView.before[y][x] = false
+                
+            }
+        }
+        
+        
         
         //initialize before array with random bools and update enum grid
         for y in 0..<gridView.cols{//iterate 0-9
@@ -224,25 +220,6 @@ class ViewController: UIViewController {
             
         }//ends initialize before array
         
-        
-        /*
-        // Draw put array named before into the grid
-        for y in 0..<gridView.cols{
-            for x in 0..<gridView.rows{
-                
-                //cast into to GCF
-                let xFromIntToCGF = CGFloat(x)
-                let yFromIntToCGF = CGFloat(y)
-                
-                if gridView.before[y][x] == true {
-                    
-                    //print("xFromIntToCGF\(xFromIntToCGF) yFromIntToCGF\(yFromIntToCGF)")
-                    gridView.fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
-                }
-                
-            }
-        }//ends put array named before into grid
-        */
         gridView.setNeedsDisplay()
         
         

@@ -262,15 +262,17 @@ class GridView: UIView {
         
         if before[xCoordInt][yCoordInt] == true{
             livingColor.setFill()
+            grid[xCoordInt][yCoordInt] = .Living
         }
         
         if before[xCoordInt][yCoordInt] == false{
             emptyColor.setFill()
+            grid[xCoordInt][yCoordInt] = .Empty
         }
         
         //fill the circle
         circlePath.fill()
-        //gridView.setNeedsDisplay()
+        
         
         
     }

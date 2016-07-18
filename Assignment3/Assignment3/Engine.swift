@@ -122,11 +122,17 @@ func step(twoDimArrOfBools: Array<Array<Bool>> ) -> Array<Array<Bool>> {
             if aliveCount == 2 || aliveCount == 3 {
                 alive = true
             }
+            else {
+                alive = false
+            }
            
             //if it is dead and has 3 alive neighbors
         case false:
             if aliveCount == 3{
                 alive = true
+            }
+            else {
+                alive = false
             }
             
         }

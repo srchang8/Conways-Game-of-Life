@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCA7627D1D3C0A7A00D17B57"
+               BlueprintIdentifier = "FC6A8BF31D32C7B100468CE7"
                BuildableName = "Assignment4.app"
                BlueprintName = "Assignment4"
                ReferencedContainer = "container:Assignment4.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCA7627D1D3C0A7A00D17B57"
+            BlueprintIdentifier = "FC6A8BF31D32C7B100468CE7"
             BuildableName = "Assignment4.app"
             BlueprintName = "Assignment4"
             ReferencedContainer = "container:Assignment4.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCA7627D1D3C0A7A00D17B57"
+            BlueprintIdentifier = "FC6A8BF31D32C7B100468CE7"
             BuildableName = "Assignment4.app"
             BlueprintName = "Assignment4"
             ReferencedContainer = "container:Assignment4.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCA7627D1D3C0A7A00D17B57"
+            BlueprintIdentifier = "FC6A8BF31D32C7B100468CE7"
             BuildableName = "Assignment4.app"
             BlueprintName = "Assignment4"
             ReferencedContainer = "container:Assignment4.xcodeproj">

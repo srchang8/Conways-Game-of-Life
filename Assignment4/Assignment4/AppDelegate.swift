@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Assignment4
+//  Assignment3
 //
-//  Created by stephen chang on 7/17/16.
+//  Created by stephen chang on 7/10/16.
 //  Copyright © 2016 Stephen Chang. All rights reserved.
 //
 
