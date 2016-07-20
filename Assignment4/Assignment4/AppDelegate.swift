@@ -5,6 +5,13 @@
 //  Created by stephen chang on 7/10/16.
 //  Copyright © 2016 Stephen Chang. All rights reserved.
 //
+/*app icons are from https://icons8.com/web-app/for/all/statistic
+https://icons8.com/web-app/for/all/simulation
+ https://icons8.com/web-app/for/all/instrumentation
+ https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+
+
+*/
 
 import UIKit
 
