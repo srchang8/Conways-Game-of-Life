@@ -165,7 +165,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="73" y="1225"/>
+            <point key="canvasLocation" x="139" y="1267"/>
         </scene>
         <!--Simulation-->
         <scene sceneID="tne-QT-ifu">
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNM-no-bph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="1225"/>
+            <point key="canvasLocation" x="813" y="1267"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FTV-ZY-5bg">
@@ -303,7 +303,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEQ-IO-5Hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="462"/>
+            <point key="canvasLocation" x="475" y="476"/>
         </scene>
     </scenes>
     <resources>

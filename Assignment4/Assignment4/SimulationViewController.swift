@@ -93,6 +93,8 @@ class SimulationViewController: UIViewController, EngineDelegate {
     
     @IBAction func populateButton(sender: UIButton) {
         
+        
+
         let grid = StandardEngine.sharedInstance.grid
         
         //clear existing if any grid
