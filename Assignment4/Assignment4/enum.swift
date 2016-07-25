@@ -11,6 +11,20 @@ import UIKit
 
 enum CellState : String {
     
+    
+    
+    case Empty
+    case Died
+    case Born
+    case Living
+    func isLiving() -> Bool {
+        switch self {
+        case .Living, .Born: return true
+        case .Died, .Empty: return false
+        }
+    }
+    
+        /* old code
     case Living = "Living", Empty = "Empty", Born = "Born", Died = "Died"
     
     
@@ -28,9 +42,10 @@ enum CellState : String {
             
             //no default needed since there are only 4 possible cases as CellState
         }
-        
-        
     }
+            */
+    
+    
     
     
     func allValues() -> Array<CellState>{

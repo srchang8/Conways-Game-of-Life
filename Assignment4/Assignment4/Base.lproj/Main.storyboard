@@ -180,37 +180,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9os-Wx-emq">
-                                <rect key="frame" x="130" y="322" width="34" height="30"/>
+                                <rect key="frame" x="95" y="427" width="34" height="30"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="populateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="10K-95-JEt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znD-07-Qtl">
-                                <rect key="frame" x="184" y="322" width="45" height="30"/>
+                                <rect key="frame" x="172" y="427" width="45" height="30"/>
                                 <state key="normal" title="Iterate"/>
                                 <connections>
                                     <action selector="runButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IgK-Fy-Tpp"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8f7-Rv-e82" customClass="GridView" customModule="Assignment4" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="308"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTC-tI-MGA">
-                                        <rect key="frame" x="130" y="322" width="34" height="30"/>
-                                        <state key="normal" title="Start"/>
-                                        <connections>
-                                            <action selector="populateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jGk-NU-7Pw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TwN-6F-OBF">
-                                        <rect key="frame" x="184" y="322" width="45" height="30"/>
-                                        <state key="normal" title="Iterate"/>
-                                        <connections>
-                                            <action selector="runButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rgj-X8-3Pn"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="419"/>
                                 <color key="backgroundColor" red="1" green="0.98363125500000004" blue="0.1222622969" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rows">
@@ -235,7 +219,7 @@
                                         <color key="value" red="0.018108299009999999" green="0.032525371810000002" blue="0.078043193720000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="gridWidth">
-                                        <real key="value" value="2"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>

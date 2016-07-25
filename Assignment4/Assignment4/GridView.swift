@@ -30,7 +30,7 @@ class GridView: UIView {
     }
     
     
-    
+    //start positions for on GridView if ever needed
     let xStart: CGFloat = 50//start position for x coordinate
     let yStart: CGFloat = 50// start position for y coordinate
     
@@ -44,31 +44,42 @@ class GridView: UIView {
         var countRows: Int = 0
         var countColumns: Int = 0
         
+        
+        
+        
+        
+        
+        //cast rows and cols to CGFloat to be able to draw lines
+        let gridRowsCGFloat = CGFloat(self.grid.rows)
+        let gridColsCGFloat = CGFloat(self.grid.cols)
+        
         //Draw rows
-        for var y: CGFloat = yStart; y <= 250; y+=10
+        for var y: CGFloat = yStart; y <= (gridRowsCGFloat*gridWidth)+(yStart); y+=gridWidth
         {
+        
             
             drawRowLine(xStart, yCoord: y)
             
             countRows+=1
             
-            
             if countRows > self.grid.rows
             {
-                //print("For Loop cannot run more than number of rows designated")
-                //print("number of rows before break \(countRows)")
+                print("For Loop cannot run more than number of rows designated")
+                print("number of rows before break \(countRows)")
                 break
             }
             
             
         }
         
-        
+        //start from 50 50
+        //draw 30(row) lines
         
         //draw columns
-        for var x: CGFloat = xStart; x <= 250; x+=10
+        for var x: CGFloat = xStart; x <= (gridColsCGFloat*gridWidth)+(yStart); x+=gridWidth
         {
             
+            //draw line starting from this position
             drawColumnLine(x, yCoord: yStart)
             
             countColumns+=1
@@ -76,13 +87,17 @@ class GridView: UIView {
             
             if countColumns > self.grid.cols
             {
-                //print("For Loop cannot run more than number of columns designated")
-                //print("number of columns before break \(countColumns)")
+                print("For Loop cannot run more than number of columns designated")
+                print("number of columns before break \(countColumns)")
                 break
+                
             }
             
             
+            
         }
+       
+        
         
         //draw before array into the grid
         for y in 0..<self.grid.cols{
@@ -104,7 +119,7 @@ class GridView: UIView {
         }
         
         
-        
+ 
         
         
     }//override rect function closing bracket
@@ -190,9 +205,13 @@ class GridView: UIView {
         let rowContext = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(rowContext, 1)
         CGContextSetStrokeColorWithColor(rowContext, gridColor)
+    
+        //cast so we can multiple rows by gridWidth to get length of line
+        let gridRowsCGFloat = CGFloat(self.grid.rows)
         
-        //MARK: make row lines longer - this sets the grid width?
-        let lengthOfLine: CGFloat = CGFloat(self.grid.rows * 10)
+        //length of each line
+        let lengthOfLine: CGFloat = CGFloat(gridRowsCGFloat * gridWidth)
+        
         
         CGContextMoveToPoint(rowContext, xCoord, yCoord)//start here
         
@@ -216,8 +235,11 @@ class GridView: UIView {
         CGContextSetLineWidth(columnContext, 1)
         CGContextSetStrokeColorWithColor(columnContext, gridColor)
         
-        //MARK: makes columns longer
-        let lengthOfLine: CGFloat = CGFloat(self.grid.cols * 10)
+        //cast so we can multiple cols by gridWidth to get length of line
+        let gridColsCGFloat = CGFloat(self.grid.cols)
+        
+        //length of each line
+        let lengthOfLine: CGFloat = CGFloat(gridColsCGFloat * gridWidth)
         
         CGContextMoveToPoint(columnContext, xCoord, yCoord)//start here
         

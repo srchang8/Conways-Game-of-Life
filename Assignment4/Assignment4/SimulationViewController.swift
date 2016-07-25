@@ -18,6 +18,7 @@ class SimulationViewController: UIViewController, EngineDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set itself as the delegate of the StandardEngine singleton
         StandardEngine.sharedInstance.delegate = self
     }
     
@@ -86,23 +87,30 @@ class SimulationViewController: UIViewController, EngineDelegate {
     
     
     
-    
+    //iterate button = runButton
     @IBAction func runButton(sender: UIButton) {
         StandardEngine.sharedInstance.step()
+        
     }
     
+    
+    //start button = populateButton
     @IBAction func populateButton(sender: UIButton) {
         
         
 
         let grid = StandardEngine.sharedInstance.grid
         
+        /*
         //clear existing if any grid
         for y in 0..<grid.cols{//iterate 0-9
             for x in 0..<grid.rows{//iterate 0-9
                 grid[y, x] = .Empty
             }
         }
+                */
+        
+        
         
         
         
@@ -125,6 +133,7 @@ class SimulationViewController: UIViewController, EngineDelegate {
             }
             
         }//ends initialize before array
+    
         
         
         StandardEngine.sharedInstance.grid = grid

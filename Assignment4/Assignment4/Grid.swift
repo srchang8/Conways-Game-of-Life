@@ -15,11 +15,14 @@ class Grid: GridProtocol {
     var rows : Int = 0
     var cols : Int = 0
     
+    //initializer accepting two ints, rows and cold
     required init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
         self.grid = [CellState](count: rows * cols, repeatedValue: CellState.Empty)
     }
+    
+    
     
     
     func neighbors(neighbor: (row : Int, col : Int)) -> [(row : Int, col : Int)] {

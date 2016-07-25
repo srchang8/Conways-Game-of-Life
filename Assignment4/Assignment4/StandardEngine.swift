@@ -48,6 +48,7 @@ class StandardEngine: EngineProtocol {
         self.scheduleTimer()
     }
     
+    
     func step() -> GridProtocol {
         
         let NumColumns = self.rows
