@@ -98,7 +98,7 @@ class GridView: UIView {
         }
        
         
-        
+        /*
         //draw before array into the grid
         for y in 0..<self.grid.cols{
             for x in 0..<self.grid.rows{
@@ -117,7 +117,9 @@ class GridView: UIView {
                 
             }
         }
+        */
         
+        updateGrid()
         
  
         
@@ -126,7 +128,27 @@ class GridView: UIView {
     
     
     
-    
+    func updateGrid(){
+        
+        //draw array grid into the grid
+        for y in 0..<self.grid.cols{
+            for x in 0..<self.grid.rows{
+                
+                //cast into to GCF
+                let xFromIntToCGF = CGFloat(x)
+                let yFromIntToCGF = CGFloat(y)
+                
+                
+                switch self.grid[y, x] {
+                case .Living, .Born:
+                    fillCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                case .Empty, .Died:
+                    emptyCell(xFromIntToCGF, yCoord: yFromIntToCGF)
+                }
+                
+            }
+        }
+    }
     
     
     //MARK: functions

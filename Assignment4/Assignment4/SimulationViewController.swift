@@ -46,6 +46,8 @@ class SimulationViewController: UIViewController, EngineDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        StandardEngine.sharedInstance.step()
         
+        //let grid = StandardEngine.sharedInstance.grid
+        
         if  let touch = touches.first {
             
             //let position :CGPoint = touch.locationInView(view)
@@ -76,6 +78,9 @@ class SimulationViewController: UIViewController, EngineDelegate {
             //}
             
             //gridView.fillCell(xCGFloat, yCoord: yCGFloat)
+            //grid[yInt, xInt] = .Living
+            //StandardEngine.sharedInstance.grid = grid
+            
             
             
         }
